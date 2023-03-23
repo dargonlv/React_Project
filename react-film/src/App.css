@@ -1,0 +1,82 @@
+.App {
+  min-height: 100%;
+    height: auto !important;
+    height: 100%;
+  text-align: center;
+}
+
+.filmler{
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: center;/*flexi ortalama*/
+    margin: auto;
+    margin-top: 85px;
+}
+
+.film{
+  margin-right: 20px;
+  margin-bottom: 30px;
+  padding: 10px;
+  height: 500px;
+  width: 300px;
+  background-color: brown;
+  
+}
+
+.text{
+  
+}
+
+img{
+
+  width: 290px;
+  border-radius: 10px;
+}
+.img{
+  margin-left: 5px;
+  height: 420px;
+  width: 250px;
+  border-radius: 10px;
+
+}
+
+p{
+  color: white;
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(31, 90, 179);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

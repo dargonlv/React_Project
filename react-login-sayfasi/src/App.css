@@ -1,0 +1,40 @@
+
+body{
+  
+  background-color: rgb(255, 255, 255);
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.MainBody{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  height: 500px;
+  width: 350px;
+  background-color: cadetblue;
+  border-top-right-radius: 155px;
+  border-top-left-radius: 155px;
+}
+
+.inBody{
+  display: flex;
+  
+  flex-direction: column;
+  justify-content:space-evenly;
+  
+  height: 465px;
+  width: 315px;
+  background-color: rgba(255, 255, 255, 0.336);
+  
+  border-top-left-radius: 140px;
+  border-top-right-radius: 140px;
+}
+

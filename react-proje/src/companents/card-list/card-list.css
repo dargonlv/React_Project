@@ -1,0 +1,52 @@
+.card{
+    height: 450px;
+    width: 450px;
+    
+    cursor: pointer;
+    margin: auto;
+    margin-bottom: 40px;
+    padding: 10px;
+    background-color: blueviolet;
+    transition: all 0.25s ease-out ;
+    
+    transform:  scale(0.95);
+    text-align: center;
+    box-shadow: 2px 6px 10px #333;
+    
+}
+
+
+
+.card:hover{
+    transform: scale(1.00);
+    box-shadow: 2px 8px 15px #06b2e6;
+    
+}
+.card-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;/*flexi ortalama*/
+    margin: auto;
+    margin-top: 85px;
+    
+}
+a{
+
+    text-decoration: none;
+}
+h4{
+    color:beige;
+    padding-top: 10px;
+    
+}
+
+.bilgi{
+    margin-top: 30px;
+    height: 90px;
+    background-color:darkorange;
+    text-align: center;
+    border-radius: 15px;
+    
+    
+    
+}

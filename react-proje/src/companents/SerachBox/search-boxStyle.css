@@ -1,0 +1,17 @@
+.search-box{
+    border: none;
+    height: 50px;
+    transition: transform 0.25s ease-out ;
+    transform: scale(0.95);
+    font-size: 20px;
+    text-align: center;
+}
+
+.search-box:hover{
+    width: 500x;
+    transform: scale(1.10);
+}
+
+.search-box:focus{
+    outline: none;
+}

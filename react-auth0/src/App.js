@@ -1,5 +1,6 @@
 import './App.css';
 import {useAuth0} from "@auth0/auth0-react"
+import { version } from 'react';
 
 
 function App() {
@@ -8,8 +9,10 @@ function App() {
   if (isAuthenticated) {
     console.log(user)
   }
+  
+
    const token = async()=>{return await getIdTokenClaims()};
-   console.log(token());
+  //  console.log(token());
   return (
     <div className="App">
       {

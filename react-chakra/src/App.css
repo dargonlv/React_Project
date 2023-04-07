@@ -147,7 +147,6 @@ background: rgba(255, 255, 255, 0.06);
 border-radius: 10px;
 
 /* Inside auto layout */
-
 flex: none;
 order: 0;
 flex-grow: 0;
@@ -159,6 +158,41 @@ flex-grow: 0;
   flex: none;
 order: 0;
 flex-grow: 0;
+}
+
+.modal{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.modal .ic .Rating{
+  float: right;
+  
+  
+  
+  
+}
+
+.modal .ic .image{
+  float: left;
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0 15px 0px 0;
+
+}
+
+.modal .ic .alt{
+ 
+}
+
+.Ratingilk{
+  color: coral;
+}
+.Ratingson{
+  color: #fc2a70;
+  
 }
 
 .App {
@@ -193,15 +227,3 @@ gap: 9px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

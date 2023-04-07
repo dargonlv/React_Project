@@ -9,15 +9,18 @@ import { Card, CardHeader, CardBody, CardFooter ,Button,Stack,Heading,Text,Image
   ModalBody,
   ModalCloseButton,
   useDisclosure} from '@chakra-ui/react'
-  import "../App.css"
-  import {Linking} from "react-native-web"
+import "../App.css"
+import {Linking} from "react-native-web"
+
+import "react-rating"
+import Rating from 'react-rating'
   
   
   
   function Film() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    const[aciklama,setaciklama]=useState();
+    const[aciklama,setaciklama]=useState([]);
 
   const filmler = Depo((a)=>a.filmler );
   const Setfilmler = Depo((a)=>a.Setfilmler );
@@ -35,7 +38,8 @@ import { Card, CardHeader, CardBody, CardFooter ,Button,Stack,Heading,Text,Image
   }
 
   const aciklamaClick = (e,id)=>{
-    fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a.Plot)})
+    setaciklama([]);
+    fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a)})
     onOpen();
   }
 
@@ -61,28 +65,69 @@ import { Card, CardHeader, CardBody, CardFooter ,Button,Stack,Heading,Text,Image
       <Heading size='md'> {film.Title}</Heading>
     </CardHeader>
     <CardBody>
+      {/* modal */}
       <>
-        <Button color="black" onClick={aciklamaClick.bind(this,film.imdbID)}>aciklama</Button>
+        <Button _hover={{bg:"#c160e7"}} bg="#5a276e" color="white" onClick={aciklamaClick.bind(this,film.imdbID)}>aciklama</Button>
         
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal size="xl" isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent >
-            <ModalHeader>Modal Title</ModalHeader>
+          <ModalContent  bg="#172454" color="white">
+            <ModalHeader >{aciklama.Title}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              selamlar
+              <div className='modal'>
+                <div className='ic'>
+                  <div className='image'>
+                    <img src={aciklama.Poster} style={{width:140,height:210,borderRadius:5}} ></img>
+                  </div>
+                  Konusu : {aciklama.Plot}
+                </div>
+                <div className='ic'>
+                   İmdb : {aciklama.imdbRating}
+                  <div className='Rating' >
+                  <Rating 
+                  emptySymbol="bi bi-star bi--lg Ratingilk"
+                  fullSymbol="bi bi-star-fill bi--lg Ratingson"
+                  stop={10}
+                  initialRating={aciklama.imdbRating}
+                  readonly
+                  fractions={4}
+                  onHover=""
+                  />
+                </div>
+                <div className='ic alt'>
+                  Süre : {aciklama.Runtime}
+                </div>
+                <div className='ic alt '>
+                  Dil : {aciklama.Language}
+                </div>
+                <div className='ic alt'>
+                  Yönetmen : {aciklama.Director}
+                </div>
+                <div className='ic alt'>
+                  Yazar : {aciklama.Writer}
+                </div>
+                <div className='ic alt'>
+                  Oyuncular : {aciklama.Actors}
+                </div>
+                <div className='ic alt'>
+                  Ödüller : {aciklama.Awards}
+                </div>
+                </div>
+              </div>
             </ModalBody>
   
             <ModalFooter>
-              <Button colorScheme='blue' mr={3} onClick={onClose}>
+              <Button _hover={{bg:"#c160e7"}} bg="#5a276e" color="white" mr={3} onClick={onClose}>
                 Close
               </Button>
-              <Button variant='ghost'>Secondary Action</Button>
+              
             </ModalFooter>
           </ModalContent>
         </Modal>
       </>
-      <Text noOfLines={2} >{aciklama}</Text>
+      {/* /modal */}
+      <Text noOfLines={2} ></Text>
     </CardBody>
     <CardFooter>
       <div style={{display:'flex',flexDirection:'row'}}>

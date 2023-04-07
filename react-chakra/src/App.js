@@ -41,10 +41,7 @@ const yedekle = ()=>{
   console.log(filmler)
 }  
 
-const yeniFetch = ()=>{
-  fetch(`http://www.omdbapi.com/?i=tt0944947&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>console.log(a))
 
-}
 
 return (
     <div className="App">
@@ -75,7 +72,7 @@ return (
               </div>
             </div>
           </div>
-                <Button className='solbutton' onClick={yeniFetch} style={{}}>Çağır</Button>                
+                            
           <div className='sag'>
            <Film></Film>
           </div>

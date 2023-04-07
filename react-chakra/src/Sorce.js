@@ -1,6 +1,7 @@
 import {create} from "zustand"
+import {persist,createJSONStorage} from "zustand/middleware"
 
-const Depo = create((set)=>({
+let Depo = (set)=>({
     sayi:1,
     setsayi:(veri)=>set(()=>({sayi: veri})),
     filmler:[],
@@ -18,7 +19,14 @@ const Depo = create((set)=>({
     {"Title":"Spider-Man: Far from Home","Year":"2019","imdbID":"tt6320628","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg"},
     {"Title":"Along Came a Spider","Year":"2001","imdbID":"tt0164334","Type":"movie","Poster":"https://m.media-amazon.com/images/M/MV5BOTVlY2VhMWEtYmRlOC00YWVhLWEzMDktZWJlYzNiMWJmZTIwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"}],
     SetfilmlerYedek:(veri)=>set(()=>({filmlerYedek: veri})),
-}))
+})
+
+Depo=persist(Depo,{
+    name:"Local Data",
+    storage:createJSONStorage(()=> sessionStorage)
+});
+
+Depo = create(Depo)
 
 
 

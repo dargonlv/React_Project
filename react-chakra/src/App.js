@@ -27,8 +27,8 @@ function App() {
   useEffect(()=>{
     fetch(`https://www.omdbapi.com/?S=${kelime}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{Setfilmler(a.Search)})
     // console.log(filmler)
-},[kelime,sayi])
-
+  },[kelime,sayi])
+  
 const search = (e)=>{
   Setkelime(e.target.value)
   
@@ -38,14 +38,30 @@ const search = (e)=>{
 const yedekle = ()=>{
   SetfilmlerYedek(filmler);
   console.log(JSON.stringify(filmler))
+  console.log(filmler)
 }  
-  return (
+
+const yeniFetch = ()=>{
+  fetch(`http://www.omdbapi.com/?i=tt0944947&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>console.log(a))
+
+}
+
+return (
     <div className="App">
       <div className='hepsi'>
         <div className='disSol' >
-         <div className='sol'>
-          <Button onClick={yedekle} style={{display:'flex',flexDirection:'row',justifyContent:"flex-end" ,marginLeft:"150px"}}>yedekle</Button>
-         </div>
+          <div className='solust'>
+            <div className='solust2'>
+
+            <Button className='solbutton' onClick={yedekle} style={{}}>yedekle</Button>
+            <Button className='solbutton' onClick={yedekle} style={{}}>yedekle</Button>
+            
+            </div>
+          </div>
+          <div className='solalt'>
+
+          </div>
+          
         </div>
 
         <div className='disSag'>
@@ -59,6 +75,7 @@ const yedekle = ()=>{
               </div>
             </div>
           </div>
+                <Button className='solbutton' onClick={yeniFetch} style={{}}>Çağır</Button>                
           <div className='sag'>
            <Film></Film>
           </div>

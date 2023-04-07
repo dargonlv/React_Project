@@ -32,6 +32,41 @@ align-items: flex-start;
 }
 
 .disSol{
+  width: 250px;
+  height: 1000px;
+  background-color: #172454;
+  border-radius: 30px;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 20px;
+  
+  
+  
+}
+
+.solust{
+  height: 450px;
+  width: 205px;
+  background-color: #313a5a;
+  
+  
+}
+
+.solust2{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 10px;
+  gap:15px
+}
+
+
+.solalt{
+  height: 450px;
+  width: 205px;
+  background-color: #313a5a;
 
 }
 
@@ -44,11 +79,7 @@ padding: 0px;
 gap: 32px;
 }
 
-.disSol .sol{
-  width: 250px;
-  height: 1000px;
-  background-color: brown;
-}
+
 
 .searchdis{
   /* Auto layout */
@@ -119,7 +150,15 @@ border-radius: 10px;
 
 flex: none;
 order: 0;
-flex-grow: 1;
+flex-grow: 0;
+}
+
+.katagori.year{
+  width: 80px;
+  margin-left: 5px;
+  flex: none;
+order: 0;
+flex-grow: 0;
 }
 
 .App {

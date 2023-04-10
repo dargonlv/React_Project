@@ -19,8 +19,12 @@ import Rating from 'react-rating'
   
   function Film() {
     const { isOpen, onOpen, onClose } = useDisclosure()
+  
 
     const[aciklama,setaciklama]=useState([]);
+
+  const aciklamatr = Depo((s)=> s.aciklamatr)
+  const Setaciklamatr = Depo((s)=> s.Setaciklamatr)
 
   const filmler = Depo((a)=>a.filmler );
   const Setfilmler = Depo((a)=>a.Setfilmler );
@@ -40,6 +44,7 @@ import Rating from 'react-rating'
   const aciklamaClick = (e,id)=>{
     setaciklama([]);
     fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a)})
+    fetch(`https://api.mymemory.translated.net/get?q=${aciklama.Plot}&langpair=en|tr`).then(s=> s.json()).then(a=>{Setaciklamatr(a.responseData.translatedText);console.log(a)})
     onOpen();
   }
 
@@ -80,7 +85,7 @@ import Rating from 'react-rating'
                   <div className='image'>
                     <img src={aciklama.Poster} style={{width:140,height:210,borderRadius:5}} ></img>
                   </div>
-                  Konusu : {aciklama.Plot}
+                  Konusu : {aciklamatr ? aciklamatr : aciklama.Plot}
                 </div>
                 <div className='ic'>
                    İmdb : {aciklama.imdbRating}
@@ -94,6 +99,9 @@ import Rating from 'react-rating'
                   fractions={4}
                   onHover=""
                   />
+                </div>
+                <div className='ic alt'>
+                  Yıl : {aciklama.Year}
                 </div>
                 <div className='ic alt'>
                   Süre : {aciklama.Runtime}

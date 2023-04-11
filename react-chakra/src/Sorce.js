@@ -23,8 +23,9 @@ let Depo = (set)=>({
     Setpage:(veri)=>set(({page: veri})),
     totalpage:"",
     Settotalpage:(v)=>set(({totalpage: v})),
-    aciklamatr:"",
-    Setaciklamatr:(v)=>set(({aciklamatr: v})),
+    aciklamatr:"DENEME",
+    Setaciklamatr:(v)=>set((state)=>({aciklamatr: state.aciklamatr+" "+v})),
+    SetaciklamatrClear:()=>set(({aciklamatr:""})),
 
 })
 

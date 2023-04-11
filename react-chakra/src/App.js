@@ -91,10 +91,14 @@ if(!(page <=1)&&kelime){
 
 return (
   <>
-        <nav style={{color:'white'}}>
 
-            <Link to="/hakkinda">Hakkında</Link>
-            <Link to="/">Fİlmler</Link>
+        <nav className='navbar' style={{color:'white'}}>
+          <div className='link'>
+            <NavLink to="/hakkinda">Hakkında</NavLink>
+          </div>
+          <div className="link">
+            <NavLink to="/">Fİlmler</NavLink>
+          </div>
         </nav>
         
     <div className="App">

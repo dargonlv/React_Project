@@ -8,7 +8,7 @@ import Istatistik from './companent/page/hakkında/istatistik';
 import Hakkinda_layout from './companent/page/hakkında/hakkinda-layout';
 
 import {Icon, SearchIcon} from "@chakra-ui/icons"
-import {Button, Center, Flex, Input} from "@chakra-ui/react"
+import {Button, Center, Flex, Input, flexbox} from "@chakra-ui/react"
 import Depo from './Sorce';
 import { Routes,Route,Link,NavLink, useParams, useNavigate} from "react-router-dom"
 import UrlPage from './companent/page/hakkında/UrlPage';
@@ -63,6 +63,19 @@ const searchClick = ()=>{
   
 }
 
+const searchFocus = (e)=>{
+  console.log("girdi",e.target)
+  
+  document.querySelector(".searchdis").style="margin-left:335px ; transform:scale(1.2);background-Color:#ffffff20  ";
+  document.querySelector(".searchic").style="background-Color:#0e1b50";
+  
+}
+
+const searchBlur = (e)=>{
+  console.log("ayrıldı",e)
+  document.querySelector(".searchdis").style="margin-left:`` ; transform:scale(0.98)";
+  document.querySelector(".searchic").style="background-Color:#0B1437";
+}
 
 const yedekle = ()=>{
   SetfilmlerYedek(filmler);
@@ -122,11 +135,11 @@ return (
 
           <div className='ust'>
             <text style={{fontSize:24,paddingLeft:10}}>Filmler</text>
-            <div className='searchdis'>
-              <div className='searchic'>
+            <div className='searchdis' onFocus={searchFocus.bind(this)} onBlur={searchBlur.bind(this)}>
+              <div className='searchic' >
                 <Icon as={SearchIcon} color="white" />
                 <Input variant='unstyled' placeholder='Search' color="white" htmlSize={26} width='auto' 
-                onChange={search} onClick={searchClick}/>
+                onChange={search}   onClick={searchClick}/>
               </div>
             </div>
           </div>
@@ -150,10 +163,16 @@ return (
         </div>
       </div>
     </div>
-    <footer className='App'  style={{color:'black',display:'flex',backgroundColor:'brown',
-    height:"100%",justifyContent:Center}}>
+    <div style={{display:"flex",alignItems:'flex-end',justifyContent:'right' ,marginRight:20}}>
+    <div className='App '  style={{
+    height:"100%",width:1024,justifyContent:Center, gap:20}}>
           <Button onClick={Geri}>Geri</Button>
           <Button onClick={ileri}>ileri</Button>
+    </div>
+    </div>
+    <footer className='App '  style={{color:'black',display:'flex',backgroundColor:"#b90a44",
+    height:70,justifyContent:Center, gap:20}}>
+          
     </footer>
   </>
   );

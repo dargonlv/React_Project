@@ -99,12 +99,21 @@ height: 40px;
 
 background: #172454;
 border-radius: 30px;
+/*animation*/
+
+transform: scale(0.98);
+transition: all 1.5s cubic-bezier(.44,-0.06,.33,1.07);
 
 /* Inside auto layout */
 
 flex: none;
 order: 1;
 flex-grow: 0;
+}
+
+.searchdis:hover{
+  transform: scale(1);
+  
 }
 
 .searchic{
@@ -121,7 +130,14 @@ flex-grow: 0;
   
   background: #0B1437;
   
+  
   border-radius: 49px;
+  transition: all 1s cubic-bezier(.44,-0.06,.33,1.07);
+}
+
+.searchic:hover{
+  
+  
 }
 
 text{
@@ -203,6 +219,12 @@ padding: 0 15px 0px 0;
  
 }
 
+.modaloverlay{
+  backdrop-filter: hue-rotate(35deg) blur(2px);
+ 
+
+}
+
 .Ratingilk{
   color: coral;
 }
@@ -259,6 +281,18 @@ Button:hover{
   
   
   
+}
+
+.ceviriButton{
+  display: flex;
+  justify-content: right;
+  
+  float: right;
+  color: rgb(255, 255, 255);
+}
+
+.ceviriButton .button:hover{
+  color: red;
 }
 
 .App {

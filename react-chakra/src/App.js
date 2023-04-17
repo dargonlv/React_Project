@@ -12,6 +12,7 @@ import {Button, Center, Flex, Input, flexbox} from "@chakra-ui/react"
 import Depo from './Sorce';
 import { Routes,Route,Link,NavLink, useParams, useNavigate} from "react-router-dom"
 import UrlPage from './companent/page/hakkında/UrlPage';
+import ImageGallery from './companent/ImageGallery';
 
 
 let deger = "0";
@@ -43,6 +44,7 @@ function App() {
    
     fetch(`https://www.omdbapi.com/?S=${kelime}&apikey=b920a3bf&page=${page}&plot=full`).then(s=> s.json()).then(a=>{Setfilmler(a.Search);Settotalpage(a.totalResults)})
     // console.log(filmler)
+    // fetch(`https://imdb-api.projects.thetuhin.com/title/tt0316654`).then(s=> s.json()).then(a=>{console.log(a)})
     navigate(`/${page}`)
     
   },[kelime,sayi,page])
@@ -59,7 +61,7 @@ const search = (e)=>{
 const searchClick = ()=>{
   Setpage(1)
   navigate("/")
-  console.log(page)
+  
   
 }
 
@@ -120,8 +122,8 @@ return (
           <div className='solust'>
             <div className='solust2'>
 
-            <Button className='solbutton' onClick={yedekle} >yedekle</Button>
-            <Button className='solbutton' onClick={yedekle} >yedekle</Button>
+            <Button className='solbutton' color="white" size="sm" backgroundColor={"#ad6800"} onClick={yedekle} >yedekle</Button>
+            <ImageGallery></ImageGallery>
             
             </div>
           </div>

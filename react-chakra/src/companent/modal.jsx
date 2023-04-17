@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Depo from '../Sorce'
 import { 
   Button,
@@ -9,7 +9,8 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure} from '@chakra-ui/react'
+  useDisclosure,
+  background,Box} from '@chakra-ui/react'
 import "../App.css"
 import "react-rating"
 import Rating from 'react-rating'
@@ -19,43 +20,31 @@ let toogleButton = false;
 
 function ModalMulti({film}) {
 
-    const OverlayOne = () => (
-        <ModalOverlay
-          bg='blackAlpha.300'
-          backdropFilter='blur(10px) hue-rotate(90deg)'
-        />
-      )
 
-      const OverlayTwo = () => (
-        <ModalOverlay
-          bg='none'
-          backdropFilter='auto'
-          backdropInvert='80%'
-          backdropBlur='2px'
-        />
-      )
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const[aciklama,setaciklama]=useState([]);
+  const[delay,SetDelay]=useState(false)
+  const[interval,setInterval]=useState(0)
 
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [overlay, setOverlay] = React.useState(<OverlayOne />)
-  
-
-    const[aciklama,setaciklama]=useState([]);
-
-    const aciklamatr = Depo((s)=> s.aciklamatr)
+  const aciklamatr = Depo((s)=> s.aciklamatr)
   const Setaciklamatr = Depo((s)=> s.Setaciklamatr)
   const SetaciklamatrClear = Depo((s)=> s.SetaciklamatrClear)
 
-    const aciklamaClick = async (e,id)=>{
-        setaciklama([]);
-        SetaciklamatrClear();
-        await fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a);console.log(a)})
-        
-        
-        onOpen();
-        
-      }
+  const aciklamaClick = async (e,id)=>{
+    setaciklama([]);
+    SetaciklamatrClear();
+    await fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a)})
     
-      function ceviri (e){
+    const deylayInt = setInterval(()=>{
+      SetDelay(true)
+      console.log('sürekimii i')
+    },1000)
+    onOpen();
+    setInterval(deylayInt)
+  }
+  
+  
+  function ceviri (e){
         toogleButton  = !toogleButton
         const metinler = splitLongSentence(aciklama.Plot);
         if (toogleButton) {
@@ -67,12 +56,13 @@ function ModalMulti({film}) {
             .then(a => { Setaciklamatr(a.responseData.translatedText)})
             })
             e.target.attributes[0].ownerDocument.activeElement.innerHTML="Eng"
+            e.target.attributes[0].ownerDocument.activeElement.style={}
         } else {
           SetaciklamatrClear()
           e.target.attributes[0].ownerDocument.activeElement.innerHTML="Tr"
+          
         }
       }
-    
       function splitLongSentence(sentence) {
         const maxLength = 500; // Maksimum cümle uzunluğu
         const words = sentence.split(' '); // Cümleyi kelimelere ayır
@@ -107,13 +97,16 @@ function ModalMulti({film}) {
     onClick={aciklamaClick.bind(this,film.imdbID)}
      
     >aciklama</Button>
+
     
-    <Modal size="xl" isOpen={isOpen} onClose={onClose}  >
+    
+    <Modal size="xl" isOpen={isOpen} onClose={()=>{ onClose(); SetDelay(false);clearInterval(interval)}}>
       <ModalOverlay 
       className='modaloverlay'
       />
 
-      <ModalContent  bg="#300531da" color="white">
+      <ModalContent  bg="#300531da" color="white"  >
+       
         <ModalHeader style={{textShadow:"#a73805 1px 0.9px"}} >
           {aciklama.Title} 
           <div>
@@ -123,6 +116,21 @@ function ModalMulti({film}) {
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
+        <Box
+          // Modal içeriğini sağ tarafa kaydırmak için pozisyon ve sağ kenar boşluğunu ayarlıyoruz
+          position="fixed"
+          right="40px"
+          top="50%"
+          transform="translateY(-50%)"
+          backgroundColor={'#300531da'}
+          width="330px"
+          opacity={delay ? "1" : "0"}
+          bgColor={"white"}
+          >
+            <div style={{backgroundColor:'white',width:"252px",height:"255px"}}>
+
+            </div>
+        </Box>
           <div className='modal'>
             <div className='ic'>
               <div className='image'>
@@ -132,7 +140,7 @@ function ModalMulti({film}) {
               
             </div>
             <div className='ceviriButton'>
-            <Button  className='button' onClick={ceviri.bind(this)} variant='outline' >Tr</Button>
+            <Button  className='button'  onClick={ceviri.bind(this)} variant='outline' >Tr</Button>
             </div>
             <div className='ic'>
                İmdb : {aciklama.imdbRating}
@@ -173,13 +181,57 @@ function ModalMulti({film}) {
         </ModalBody>
 
         <ModalFooter>
-          <Button _hover={{bg:"#c160e7"}} bg="#5a276e" color="white" mr={3} onClick={onClose}>
+          <Button _hover={{bg:"#c160e7"}} bg="#5a276e" color="white" mr={3} onClick={()=>{ onClose(); SetDelay(false);clearInterval(interval)}}>
             Close
           </Button>
           
         </ModalFooter>
       </ModalContent>
     </Modal>
+    {/* 2. Modal */}
+    {/* <Modal size="xl" isOpen={isOpen} isCentered={false} onClose={()=>{ onClose(); SetDelay(false);clearInterval(interval)}}>
+   
+      <ModalOverlay 
+      style={{backdropFilter:'none'}}
+      />
+
+      <ModalContent  bg="#300531da" color="white">
+      <Box
+          // Modal içeriğini sağ tarafa kaydırmak için pozisyon ve sağ kenar boşluğunu ayarlıyoruz
+          position="fixed"
+          right="40px"
+          top="50%"
+          transform="translateY(-50%)"
+          backgroundColor={'#300531da'}
+          width="330px"
+          opacity={delay ? "1" : "0"}
+          
+        >
+        <ModalHeader style={{textShadow:"#a73805 1px 0.9px"}} >
+          
+          <div>
+            
+          </div>
+        
+        </ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <div>
+            deneme yazısıı bir iki
+
+          </div>
+        </ModalBody>
+
+        <ModalFooter>
+          <Button _hover={{bg:"#c160e7"}} bg="#5a276e" color="white" mr={3} onClick={()=>{ onClose(); SetDelay(false);clearInterval(interval)}}>
+            Close
+          </Button>
+          
+        </ModalFooter>
+        </Box>
+      </ModalContent>
+    </Modal> */}
+    
   </>
   )
 }

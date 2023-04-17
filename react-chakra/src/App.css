@@ -33,19 +33,16 @@ align-items: flex-start;
 }
 
 .disSol{
-  width: 250px;
-  height: 1000px;
+  
+  
   background-color: #172454;
-  border-radius: 30px;
+  border-radius: 20px;
 
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   gap: 20px;
-  padding: 20px 20px;
-  
-  
-  
+  padding: 20px 20px 20px 20px;
   
 }
 
@@ -54,14 +51,14 @@ align-items: flex-start;
   width: 205px;
   background-color: #313a5a;
   
-  
+  border-radius:20px;
 }
 
 .solust2{
   display: flex;
   flex-wrap: wrap;
   padding: 10px 10px;
-  gap:15px
+  gap:15px;
 }
 
 
@@ -69,6 +66,7 @@ align-items: flex-start;
   height: 450px;
   width: 205px;
   background-color: #313a5a;
+  border-radius:20px;
 
 }
 
@@ -293,6 +291,41 @@ Button:hover{
 
 .ceviriButton .button:hover{
   color: red;
+}
+
+.ImageGallery{
+  
+  width: 100%;
+  height: 275px;
+  
+}
+
+.ImageGallery .ic .Image{
+  
+  width: 100%;
+  height: 275px;
+  background-size: cover;
+}
+
+
+.minibar{
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 7px;
+  padding-top: 7px;
+
+  width: 100%;
+  height: 25px;
+}
+
+.bar{
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  
 }
 
 .App {

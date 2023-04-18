@@ -26,7 +26,10 @@ let Depo = (set)=>({
     aciklamatr:"DENEME",
     Setaciklamatr:(v)=>set((state)=>({aciklamatr: state.aciklamatr+" "+v})),
     SetaciklamatrClear:()=>set(({aciklamatr:""})),
-
+    filmImages:"",
+    SetfilmImages:(f)=>set(({filmImages: f})),
+    filmtur:"",
+    Setfilmtur:(f)=>set(({filmtur: f})),
 })
 
 Depo=persist(Depo,{

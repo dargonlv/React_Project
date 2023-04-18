@@ -1,4 +1,5 @@
 import './App.css';
+
 import MenuBar from './companent/Menu';
 import {useEffect} from "react"
 import Film from './companent/Film';
@@ -13,6 +14,8 @@ import Depo from './Sorce';
 import { Routes,Route,Link,NavLink, useParams, useNavigate} from "react-router-dom"
 import UrlPage from './companent/page/hakkında/UrlPage';
 import ImageGallery from './companent/ImageGallery';
+
+
 
 
 let deger = "0";
@@ -102,12 +105,13 @@ if(!(page <=1)&&kelime){
 }
 }
 
-
-
 return (
   <>
 
         <nav className='navbar' style={{color:'white'}}>
+          <div>
+          
+          </div>
           <div className='link'>
             <NavLink to="/hakkinda">Hakkında</NavLink>
           </div>
@@ -165,7 +169,7 @@ return (
         </div>
       </div>
     </div>
-    <div style={{display:"flex",alignItems:'flex-end',justifyContent:'right' ,marginRight:20}}>
+    <div style={{display:"flex",alignItems:'flex-end',justifyContent:'center' ,marginLeft:270}}>
     <div className='App '  style={{
     height:"100%",width:1024,justifyContent:Center, gap:20}}>
           <Button onClick={Geri}>Geri</Button>

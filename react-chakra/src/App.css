@@ -100,7 +100,7 @@ border-radius: 30px;
 /*animation*/
 
 transform: scale(0.98);
-transition: all 1.5s cubic-bezier(.44,-0.06,.33,1.07);
+transition: all 0.7s cubic-bezier(.44,-0.06,.33,1.07);
 
 /* Inside auto layout */
 
@@ -216,11 +216,67 @@ padding: 0 15px 0px 0;
 .modal .ic .alt{
  
 }
+.modalSol{
+  width: 330px;
+  height: 455px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 7px;
+  
+}
+.modalSol .ic{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+
+  width: 300px;
+  height: 380px;
+}
+.modalSol .ic .ic2{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  
+
+  width: 300px;
+  height: 380px;
+}
+
+.modalSol .icalt{
+  display: flex;
+  justify-content: center;
+  gap:12px;
+  background-color: #31051ada;
+  width: 270px;
+  height: 30px;
+  
+}
 
 .modaloverlay{
   backdrop-filter: hue-rotate(35deg) blur(2px);
  
 
+}
+
+.ModalBox{
+ 
+ 
+  animation-name: modalbox-animation;
+  animation-duration: 1s;
+
+}
+
+@keyframes modalbox-animation {
+  0%   {transform: rotate3d(-3,30,0,45deg) scale(1.05); }
+  
+  100% {transform: rotate3d(0,0,0,0deg); }
 }
 
 .Ratingilk{
@@ -283,7 +339,7 @@ Button:hover{
 
 .ceviriButton{
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   
   float: right;
   color: rgb(255, 255, 255);
@@ -344,11 +400,7 @@ gap: 9px;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;

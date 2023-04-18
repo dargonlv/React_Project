@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect} from 'react'
 import Depo from '../Sorce'
 import { Img, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 
@@ -10,7 +10,7 @@ function ImageGallery() {
         const interval = setInterval(() => {
             Setsayi(sayi=>sayi+1)
             
-            console.log(sayi)
+            
             
         }, 15000);
         return ()=> clearInterval(interval)

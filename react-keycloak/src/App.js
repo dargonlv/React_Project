@@ -1,10 +1,13 @@
 
 import Login from "./companent/login";
 import Button from "./companent/button";
+import Depo from "./source";
+import Keycloak from "keycloak-js";
 
+
+const client = Depo();
 function App() {
-  
-  
+
   // const reguest = {
   //   method:'POST',
   //   headers:{},
@@ -20,14 +23,23 @@ function App() {
   // .then(veri=> console.log(veri))
   // console.log(reguest)
   const s = Login();
-
   
-
-  
+  const fonk = ()=>{
+    client.loadUserProfile().success(()=>{
+      if (client.realmAccess.roles.indexOf("Admin") !== -1) {//rolünü sorluyoruz
+        return true
+      }else{
+        return false
+      }
+    });
+  }
 
   return <div>
         deneme
         <Button></Button>
+        {fonk() ? <div style={{width:450,height:250,backgroundColor:"red"}}></div> : ""
+        
+        }
     </div>
 
 }

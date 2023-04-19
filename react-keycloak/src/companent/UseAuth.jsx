@@ -20,14 +20,7 @@ const UseAuth = () => {
         isRun.current=true;
 
         client.init({ onLoad: 'login-required'}).then((res)=> {setLogin(res)});
-        
-        
     },[])
-
-
-
-    
-
   return  isLogin;
 }
 

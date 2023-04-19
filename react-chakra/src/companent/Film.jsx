@@ -6,7 +6,7 @@ import "../App.css"
 import {Linking} from "react-native-web"
 
 import "react-rating"
-import ModalMulti from './Modal'
+import ModalMulti from './modal'
 
 
 function Film() {

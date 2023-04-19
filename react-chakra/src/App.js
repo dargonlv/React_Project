@@ -23,26 +23,13 @@ let deger = "0";
 function App() {
   const navigate= useNavigate();
   
-  const totalpage = Depo((s)=> s.totalpage)
-  const Settotalpage = Depo((s)=> s.Settotalpage)
-
-  let page= Depo((state)=> state.page)
-  const Setpage= Depo((state)=> state.Setpage)
-
-  const sayi = Depo((state)=> state.sayi)
-  const setsayi = Depo((state)=> state.setsayi)
+  const {totalpage,Settotalpage,
+         page,Setpage,
+         sayi,setsayi,
+         kelime,Setkelime,
+         filmler,Setfilmler,
+         filmlerYedek,SetfilmlerYedek} = Depo()
   
-  const kelime = Depo((state)=> state.kelime)
-  const Setkelime = Depo((state)=> state.Setkelime)
-  
-  const filmler = Depo((a)=>a.filmler );
-  const Setfilmler = Depo((a)=>a.Setfilmler);
-
-  const filmlerYedek = Depo((a)=>a.filmlerYedek );
-  const SetfilmlerYedek = Depo((a)=>a.SetfilmlerYedek);
-
- 
-
   useEffect(()=>{
    
     fetch(`https://www.omdbapi.com/?S=${kelime}&apikey=b920a3bf&page=${page}&plot=full`).then(s=> s.json()).then(a=>{Setfilmler(a.Search);Settotalpage(a.totalResults)})
@@ -116,7 +103,7 @@ return (
             <NavLink to="/hakkinda">Hakkında</NavLink>
           </div>
           <div className="link">
-            <NavLink to="/">Fİlmler</NavLink>
+            <NavLink to="/" >Fİlmler</NavLink>
           </div>
         </nav>
         
@@ -144,7 +131,7 @@ return (
             <div className='searchdis' onFocus={searchFocus.bind(this)} onBlur={searchBlur.bind(this)}>
               <div className='searchic' >
                 <Icon as={SearchIcon} color="white" />
-                <Input variant='unstyled' placeholder='Search' color="white" htmlSize={26} width='auto' 
+                <Input variant='unstyled' placeholder='Search' color="white" htmlSize={26} value={kelime} width='auto' 
                 onChange={search}   onClick={searchClick}/>
               </div>
             </div>

@@ -34,7 +34,9 @@ function Film() {
   
     
       
-  return<Card variant='elevated' _hover={{boxShadow:"2px 2px 10px cadetblue" }} transition="all 0.25s "  transitionDelay="200ms" bg="#172454" color="white" className='card' style={{display:'flex',flexDirection:'row' }}>
+  return<Card variant='elevated' _hover={{boxShadow:"2px 2px 10px cadetblue" }} 
+  transition="all 0.25s "  transitionDelay="200ms" bg="#172454" color="white" 
+  className='card' style={{display:'flex',flexDirection:'row' }}>
     <Image
     objectFit='cover'
     maxW={{ base: '100%', sm: '200px' }}

@@ -27,19 +27,21 @@ function ModalMulti({film}) {
   const[aciklama,setaciklama]=useState([]);
   const[delay,SetDelay]=useState(false);
   const[filmImageCount,SetfilmImagesCount]= useState(0)
+  const {
+    filmImages,
+    SetfilmImages,
+    aciklamatr,
+    Setaciklamatr,
+    SetaciklamatrClear,
+    filmtur,
+    Setfilmtur} = Depo()
  
-  const filmImages=Depo((s)=> s.filmImages)
-  const SetfilmImages=Depo((s)=> s.SetfilmImages)
-  const aciklamatr = Depo((s)=> s.aciklamatr)
-  const Setaciklamatr = Depo((s)=> s.Setaciklamatr)
-  const SetaciklamatrClear = Depo((s)=> s.SetaciklamatrClear)
-  const filmtur=Depo((s)=> s.filmtur)
-  const Setfilmtur=Depo((s)=> s.Setfilmtur)
 
 
   const aciklamaClick = async (e,id)=>{
     setaciklama([]);
     SetaciklamatrClear();
+    onOpen();
     await fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a)})
     await fetch(`https://imdb-api.projects.thetuhin.com/title/${e}`).then(s=> s.json()).then(a=> {SetfilmImages(a.images);Setfilmtur(a.genre)})
     
@@ -47,7 +49,6 @@ function ModalMulti({film}) {
       SetDelay(true);
       
     }, 250);
-    onOpen();
     // setInterval(deylayInt)
   }
   
@@ -55,6 +56,7 @@ function ModalMulti({film}) {
   function ceviri (e){
         toogleButton  = !toogleButton
         const metinler = splitLongSentence(aciklama.Plot);
+        
         if (toogleButton) {
           
           
@@ -101,7 +103,10 @@ function ModalMulti({film}) {
     
     if (filmImageCount>0) {
       SetfilmImagesCount(filmImageCount-1)
+    }else{
+      SetfilmImagesCount(filmImages.length-1)
     }
+    console.log(filmImageCount)
     
   }
 

@@ -5,7 +5,7 @@ import Depo from "./source";
 import Keycloak from "keycloak-js";
 
 
-const client = Depo();
+// const client = Depo();
 function App() {
 
   // const reguest = {
@@ -24,22 +24,22 @@ function App() {
   // console.log(reguest)
   const s = Login();
   
-  const fonk = ()=>{
-    client.loadUserProfile().success(()=>{
-      if (client.realmAccess.roles.indexOf("Admin") !== -1) {//rolünü sorluyoruz
-        return true
-      }else{
-        return false
-      }
-    });
-  }
+  // const fonk = ()=>{
+  //   client.loadUserProfile().success(()=>{
+  //     if (client.realmAccess.roles.indexOf("Admin") !== -1) {//rolünü sorluyoruz
+  //       return true
+  //     }else{
+  //       return false
+  //     }
+  //   });
+  // }
 
   return <div>
         deneme
         <Button></Button>
-        {fonk() ? <div style={{width:450,height:250,backgroundColor:"red"}}></div> : ""
+        {/* {fonk() ? <div style={{width:450,height:250,backgroundColor:"red"}}></div> : ""
         
-        }
+        } */}
     </div>
 
 }

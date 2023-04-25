@@ -1,22 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import keycloak from "../Keycloak/keycloak.js"
 import Keycloak from "keycloak-js"
-import { useNavigate } from 'react-router-dom'
-
 
 function Logout() {
-    const navigate = useNavigate()
-    
-
-    const logoutTikla=()=>{
+  
+    const logoutTikla= ()=>{
       try {
+        keycloak.logout({
+          redirectUri:"http://localhost:3000"
+        })
         
-        keycloak.logout()
-      } catch (error) {
-        
-      }
-      navigate("/login")
+      } catch (error) { }
     }
+
   return (
     <div>
       <button onClick={logoutTikla}>logout</button>

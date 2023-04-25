@@ -6,11 +6,14 @@ const keycloak = new Keycloak({
   realm: "react",
   clientId: "myClient"
 })
-keycloak.createLogoutUrl = function(options) {
+keycloak.createLogoutUrl = ()=> {
       
   return keycloak.endpoints.logout()
       + '?id_token_hint=' + keycloak.idToken
-      + '&post_logout_redirect_uri=' + encodeURIComponent(window.location.href);
+      + '&post_logout_redirect_uri=' + encodeURIComponent("http://localhost:3000")//encodeURIComponent(window.location.href) olduğu konum
 }
+
+
+
 
 export default keycloak

@@ -10,7 +10,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 
 
 function Login() {
-    const[Roles, SetRoles] = useState();
+    
     const girskontrol = Depo();
     const Setgirskontrol = Depo();
     const isKontrol = useRef();
@@ -23,31 +23,34 @@ function Login() {
         } 
         isKontrol.current=true
             keycloak.init({ onLoad: 'login-required' }).then((authenticated) => {
-                
-                
-                if (authenticated) {
-                    if(keycloak.authenticated) {navigate("/UserPage")}  
+
+              if (authenticated) {
+                     {navigate("/UserPage")}  
                   
                   console.log('User is authenticated');
-                  
-                } else {
+              }
+              else {
                   console.log('User is not authenticated');
-                }
+              }
             }).catch(() => {
                 console.log('Failed to initialize Keycloak');
             });
-    
+
     },[keycloak])
+    
 
     useEffect(()=>{
 
         console.log(keycloak.subject)
     },[keycloak.authenticated])
+    
+    
+    
 
   return (
     <div>
         Burası giriş sayfasıdır.
-        {Roles ? <Yonetim></Yonetim>:""}
+        
 
     </div>
   )

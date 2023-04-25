@@ -7,6 +7,43 @@
   pointer-events: none;
 }
 
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap:10px;
+  padding: 20px 20px 20px 20px;
+  
+  background-color: rgb(89, 121, 35);
+  color: white;
+}
+
+.navbar .sol{
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  
+  
+  width: 350px;
+}
+
+.navbar .sag{
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 350px;
+  
+  
+
+}
+
+.Button{
+  padding: 8px 8px 8px 8px;
+  background-color: burlywood;
+  border-radius: 7px;
+  color: azure;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

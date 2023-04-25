@@ -2,7 +2,7 @@
 React Projeleri
 
 Bu projeler geniş kapsamlı olarak react'a gelişim sağlamak için denemelerdir.
-Yinede işe yarar web sayfaları mevcuttur
+Yinede işe yarar web projeleri mevcuttur
 🚀🚀🚀🚀🚀🚀
 --------------
 🚀🚀🚀🚀🚀🚀

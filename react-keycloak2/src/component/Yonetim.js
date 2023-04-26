@@ -25,6 +25,8 @@ function Yonetim() {
         <p>id: {keycloak.profile.id}</p>
         <p>userid: {keycloak.tokenParsed.sub}</p>
         <p>username: {keycloak.tokenParsed.preferred_username}</p>
+        <p>refreshtoken: {keycloak.refreshToken}</p>
+        <p>refreshtokenParse: {keycloak.refreshTokenParsed}</p>
         
         
     </div>

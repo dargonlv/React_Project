@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
@@ -38,6 +38,26 @@ function App() {
     
 
   };
+
+  useEffect(()=>{
+        // Sayfa yenilendiğinde token kontrol ediliyor
+      if (localStorage.getItem('keycloak-token')) {
+        keycloak.token = localStorage.getItem('keycloak-token');
+        console.log(keycloak.token)
+        keycloak.updateToken(5).success(function(refreshed) {
+          if (refreshed) {
+            localStorage.setItem('keycloak-token', keycloak.token);
+            console.log("Token refreshed");
+          } else {
+            console.log("Token not refreshed, valid for " +
+                Math.round(keycloak.tokenParsed.exp + keycloak.timeSkew - new Date().getTime() / 1000) + " seconds");
+          }
+        }).error(function(e) {
+          console.log('Failed to refresh token');
+          console.log(e);
+        });
+      }
+  },[])
 
   
   

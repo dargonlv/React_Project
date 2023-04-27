@@ -8,7 +8,6 @@ import {
   MDBCardBody,
   MDBInput,
   MDBIcon,
-  
 }
 from 'mdb-react-ui-kit';
 import "../Css/loginpage.css";
@@ -16,13 +15,20 @@ import jwtDecode from 'jwt-decode';
 import Depo from '../Source';
 import {useNavigate} from "react-router-dom"
 
+
 function LoginPage() {
-    const navigate= new useNavigate(); 
+  const navigate= new useNavigate(); 
+  
 
     const [gmail,Setgmail]=useState();
     const [pasword,Setpasword]=useState();
     const {token,Settoken,
-           status,Setstatus}= Depo();
+           status,Setstatus,
+           jwdtoken,Setjwdtoken,
+           time,Settime,
+           refresh_token,Setrefresh_token,
+           expires_in,Setexpires_in,
+           refresh_expires_in,Setrefresh_expires_in}= Depo();
     
     let user = {
         username: 'fatihmer0029@gmail.com',
@@ -43,7 +49,7 @@ function LoginPage() {
         },
         body: new URLSearchParams(user),})
         .then((s)=> {
-            
+            console.log(s)
             if (s.status=="401") {
                 Settoken("0")
                 Setstatus(s.status)
@@ -55,24 +61,52 @@ function LoginPage() {
             
 
         })
-        .then((a)=> Settoken(a.access_token))
+        .then((a)=> {Settoken(a.access_token);
+          Setrefresh_token(a.refresh_token);
+          console.log(refresh_token)})
+          Rfresh_Token()
         .catch((a)=>{
             console.log("Bir hata oluştu"+" "+status)
         })
+        
+          
    
     };
 
+    async function Rfresh_Token(){
+      let user_token = {
+        grant_type: 'refresh_token',
+        refresh_token: refresh_token,
+        client_id: 'myClient',
+        
+        };
+      await fetch("http://localhost:8080/realms/react/protocol/openid-connect/token", {
+        mode:"cors",
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(user_token),})
+        .then((a)=>a.json()).then((s)=>{console.log(s)})
+        
+    }
+
+    
+
     useEffect(()=>{
         try {
-            console.log(jwtDecode(token))
+           
         } catch (error) {
             console.warn("token çevrilemedi")
+            
         } 
         if (token!="0") {
             if (token!=null) {
                 console.log("yönlendiriliyorsunuz")
                 setTimeout(()=>{
-                    navigate("/profil")
+                  Setjwdtoken(jwtDecode(token))
+                  
+                    navigate("/profile")
                 },700)
             }
         }
@@ -80,7 +114,7 @@ function LoginPage() {
         
     },[token])
 
-
+    
     function StatusKontrol() {
         if (status=="401") {
             console.warn("Kullanıcı kayıtlı değil"+" "+status)
@@ -90,8 +124,8 @@ function LoginPage() {
     }
 
     function git(){
-        navigate("/profil")
-        console.log("prfil")
+        navigate("/profile")
+        console.log("profile")
     }
 
     const gmailfonk = (e)=>{

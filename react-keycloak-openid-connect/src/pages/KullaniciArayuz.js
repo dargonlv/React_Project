@@ -4,35 +4,59 @@ import jwtDecode from 'jwt-decode';
 import {useFetcher, useNavigate} from "react-router-dom"
 import {MDBBtn} from 'mdb-react-ui-kit';
 import "../App.css"
+import Admin from '../component/admin';
+import Kullanici from '../component/kullanici';
+import Rolequest from '../component/Rolequest';
 
 let veri = ""
 function KullaniciArayuz() {
     const navigate = new useNavigate()
+    const [Rolkontorl,SetRolkontrol]=useState(2)
     const {token,Settoken,
-           jwdtoken,
+           jwdtoken,Setjwdtoken,
            time,Settime,
+           dead_time,Setdead_time,
            expires_in,Setexpires_in,
            refresh_token,Setrefresh_token,
            refresh_expires_in,Setrefresh_expires_in} = Depo();
 
     useEffect(()=>{
         try {
-            veri=jwtDecode(token);
-            
+            Setjwdtoken(jwtDecode(token));
+            console.log(jwdtoken)
+            Rolkontrolmetot() 
+
         } catch (error) {
           
         }
     },[token])
 
+    function Rolkontrolmetot(){
+      if (jwdtoken.realm_access.roles.indexOf("Admin")!==-1) {
+        SetRolkontrol(0)
+      }else if(jwdtoken.realm_access.roles.indexOf("Kullanici")!==-1){
+        SetRolkontrol(1)
+      }else{
+        SetRolkontrol(2)
+      }
+      
+     
+    }
+
     useEffect(()=>{
-      // if (time==expires_in) {
-      //   Settime(0)
-      //   Rfresh_Token()
+      if (time==expires_in-1) {
+        Rfresh_Token()
+        Settime(0)
         
-      //   console.log("sıfırladnid")
-      //   console.log(expires_in)
-      // }
-    })
+        console.log("sıfırladnid expires_in ile")
+        console.log(expires_in)
+      }
+      if (dead_time==refresh_expires_in) {
+        console.log("Çıkış")
+        alert("otutum süresi doldu")
+        logout()
+      }
+    },[time])
 
      async function Rfresh_Token(){
       let user_token = {
@@ -41,20 +65,24 @@ function KullaniciArayuz() {
         client_id: 'myClient',
         
         };
+        console.log({user_token})
       await fetch("http://localhost:8080/realms/react/protocol/openid-connect/token", {
         mode:"cors",
         method: 'POST',
         headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: new URLSearchParams(user_token),})
-        .then((a)=>{a.json()})
-        .then((s)=>console.log(s))
+        body: new URLSearchParams(user_token),}).then((a)=>a.json())
+        .then((s)=>{
+          Settoken(s.access_token)
+          console.log("yeni access_token eklendi")}).catch((e)=>{console.log("refresh token hatası")})
     }
 
     const logout = ()=>{
         Settoken(0);
-        Settime(0)
+        Settime(0);
+        Setdead_time(0)
+        Setrefresh_token(0)
         setTimeout(()=>{
 
             navigate("/login")
@@ -64,6 +92,12 @@ function KullaniciArayuz() {
 
   return (
     <div className='KullaniciArayuz' >
+      <div className='bosdiv'>
+      {
+        Rolkontorl==0 ? <div><Admin></Admin></div>:""
+      }
+      </div>
+
       <div className='ic' style={{backgroundColor:"mediumpurple"}}> 
         <div className='ust' style={{width:"100%",height:400}}>
             <div className='disCerceve'>
@@ -123,7 +157,9 @@ function KullaniciArayuz() {
         </div>
         <MDBBtn  style={{color:'white',backgroundColor:"ThreeDLightShadow"}} color='white' onClick={logout}>Logut</MDBBtn>
       </div>
-      
+      <div className='bosdiv'>
+      {Rolkontorl==1 ?<div><Kullanici></Kullanici></div>:""}
+      </div>
     </div>
   )
 }

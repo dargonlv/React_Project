@@ -41,7 +41,7 @@ function LoginPage() {
         
         user.username=gmail;
         user.password=pasword;
-    await fetch('http://localhost:8080/realms/react/protocol/openid-connect/token', {
+        await fetch('http://localhost:8080/realms/react/protocol/openid-connect/token', {
         mode:"cors",
         method: 'POST',
         headers: {
@@ -63,8 +63,10 @@ function LoginPage() {
         })
         .then((a)=> {Settoken(a.access_token);
           Setrefresh_token(a.refresh_token);
+          Setexpires_in(a.expires_in)
+          Setrefresh_expires_in(a.refresh_expires_in)
           console.log(refresh_token)})
-          Rfresh_Token()
+          // Rfresh_Token()
         .catch((a)=>{
             console.log("Bir hata oluştu"+" "+status)
         })
@@ -72,6 +74,8 @@ function LoginPage() {
           
    
     };
+
+    
 
     async function Rfresh_Token(){
       let user_token = {

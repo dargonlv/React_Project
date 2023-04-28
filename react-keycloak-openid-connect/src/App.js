@@ -10,6 +10,7 @@ import Depo from './Source';
 
 function App() {
   const {time,Settime,
+         dead_time,Setdead_time,
          token}=Depo();
 
   
@@ -20,8 +21,9 @@ function App() {
       if (token!="0") {
         if (token!=null) {
           Settime(time+1)
-          console.log(time)
-          if (time=="60") {
+          Setdead_time(dead_time+1)
+          console.log(time,"genel süre :",dead_time)
+          if (time=="120") {
             Settime(0)
             console.log("sıfırladnid")
           }

@@ -16,7 +16,9 @@ let Depo = persist((set)=>({
     jwdtoken:"",
     Setjwdtoken: (s)=>set(()=>({jwdtoken: s})),
     time:0,
-    Settime: (s)=>set(()=>({time: s}))
+    Settime: (s)=>set(()=>({time: s})),
+    dead_time:0,
+    Setdead_time: (s)=>set(()=>({dead_time: s})),
     
 
 }),{

@@ -1,14 +1,18 @@
 import React,{useEffect, useRef} from 'react'
 import "../Css/nav.css"
 import userEvent from '@testing-library/user-event'
+import RolBar from './RolBar'
 
 function Nav() {
-    
+    const use= useRef(null)
 
-    const deneme =(e)=>{
-            console.log(e)
+    const de=()=>{
+        console.log(use.current);
+        use.current.classList.add("altfocus")
+        
     }
 
+    
     
   return (
     <nav className='nav' >
@@ -79,20 +83,16 @@ function Nav() {
             </div>
         </div>
         <div className='rolingbar'>
-            <div className='out'>
-                <div className='minimenu' onClick={deneme.bind(this)}> 
-                    <div className='ic'>
-                        <div className='resim'>
-                            <img style={{width:24,height:24}} src='https://a0.muscache.com/pictures/d7445031-62c4-46d0-91c3-4f29f9790f7a.jpg'></img>
-                        </div>
-                        <div className='metin'>
-                            toprak arazi
-                        </div>
-                    </div> 
 
-                </div>
-            </div>
+            <RolBar></RolBar>
+            <RolBar></RolBar>
+            <RolBar></RolBar>
+            <RolBar></RolBar>
+            <RolBar></RolBar>
+            <RolBar></RolBar>
+
         </div>
+        
     </nav>
   )
 }

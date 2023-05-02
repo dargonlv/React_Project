@@ -19,12 +19,25 @@ function RolBar (){
         
         
     }
+    const move=()=>{
+        
+        try {
+            temel.current.classList.remove("altfocus2")
+        } catch (error) {
+            console.log(error)
+        }
+        use.current.classList.add("altfocus2")
+        Settemel(use)
+        
+        
+    }
+
 
     
     return(
         
             <div className='out'>
-                <div className='minimenu'  onClick={de}  > 
+                <div className='minimenu'  onClick={de} onMouseMove={move}  > 
                     <div className='ic'>
                         <div className='resim'>
                             <img style={{width:24,height:24}} src='https://a0.muscache.com/pictures/d7445031-62c4-46d0-91c3-4f29f9790f7a.jpg'></img>
@@ -33,8 +46,9 @@ function RolBar (){
                             toprak arazi
                         </div>
                     </div> 
-                    
-                    <div  ref={use}></div>
+                    <div className="alt">
+                        <div className="altfocus2" ref={use}></div>
+                    </div>
                 </div>
             </div>
        

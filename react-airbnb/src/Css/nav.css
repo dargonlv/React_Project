@@ -24,6 +24,31 @@
     
 }
 
+
+
+
+.rolingbar .alt{
+    display: flex;
+    justify-content: center;
+}
+
+.altfocus{
+    width: 24px;
+    height: 3px;
+    background-color:  rgb(142, 142, 142);
+    margin-top: 14px;
+ 
+}
+
+.altfocus2{
+    width: 24px;
+    height: 3px;
+    margin-top: 14px;
+    background-color: aquamarine;
+}
+
+
+
 .rolingbar .out{
     background-color: mediumseagreen;
     width: auto;
@@ -71,13 +96,7 @@
     overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
 
-.altfocus{
-    width: 15px;
-    height: 15px;
-    background-color: rgb(226, 43, 43);
 
-    
-}
 
 .main .orta {
     display: flex;

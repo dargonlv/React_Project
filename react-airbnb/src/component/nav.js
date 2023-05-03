@@ -1,10 +1,14 @@
-import React,{useEffect, useRef} from 'react'
+import React,{useEffect, useRef,useState} from 'react'
 import "../Css/nav.css"
 import userEvent from '@testing-library/user-event'
 import RolBar from './RolBar'
 
+let yedek =0;
+let roligbar="";
 function Nav() {
+    const [scrolsol,Setscrolsol]= useState(0);
     const use= useRef(null)
+    
 
     const de=()=>{
         console.log(use.current);
@@ -12,6 +16,55 @@ function Nav() {
         
     }
 
+    const a =(()=>{
+        setTimeout(() => {
+            
+            roligbar=document.querySelector(".rolingbarici")
+            console.log("sss")
+        }, 200);
+        roligbar.scrollLeft+=312;//78 'er atrış
+        
+        yedek=yedek-312
+        if (yedek<0) {
+            yedek=0
+        }
+        
+        Setscrolsol(roligbar.scrollLeft)
+        
+    })
+    const b =(()=>{
+        setTimeout(() => {
+            
+            roligbar=document.querySelector(".rolingbarici")
+            // console.log("sss")
+        }, 200);
+        roligbar.scrollLeft-=312;//78 'er atrış
+        yedek=yedek+312
+        if(yedek>roligbar.scrollWidth-roligbar.offsetWidth){
+            yedek=roligbar.scrollWidth-roligbar.offsetWidth;
+        }
+        Setscrolsol(roligbar.scrollLeft)
+        
+    })
+    
+    useEffect(()=>{
+        setTimeout(() => {
+            
+            roligbar=document.querySelector(".rolingbarici")
+            // console.log("bar width :",roligbar.scrollWidth-roligbar.offsetWidth)
+            yedek=roligbar.scrollWidth-roligbar.offsetWidth;
+        }, 200);
+        
+    },[])
+    
+    useEffect(()=>{
+        
+            
+            console.log("bar konum",yedek)
+        
+        
+    },[yedek])
+   
     
     
   return (
@@ -83,16 +136,53 @@ function Nav() {
             </div>
         </div>
         <div className='rolingbar'>
-
-            <RolBar></RolBar>
-            <RolBar></RolBar>
-            <RolBar></RolBar>
-            <RolBar></RolBar>
-            <RolBar></RolBar>
-            <RolBar></RolBar>
-
+            <div className='rolingbarici'>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+                <RolBar></RolBar>
+            </div>
+            <div style={{position:"absolute",left:28,width:0}}>
+                        <button className='' onClick={b}>{"<"}</button>
+                    </div>
+                <div style={{position:"relative",right:12,width:0}}>
+                        <button onClick={a}>{">"}</button>
+                </div>
+            <div className='filitre'>
+                <div className='out'>
+                    <button className='button'>
+                            <span style={{height:"100%",paddingTop:4}}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+                                </svg>
+                            </span>
+                            <div style={{height:"100%",paddingTop:5}}>
+                                Filitre
+                            </div>
+                    </button>
+                </div>
+            </div>
         </div>
-        
+
     </nav>
   )
 }

@@ -1,0 +1,20 @@
+.SayfaBody{
+    
+    width: auto;
+    height: 100%;
+    margin: 16px 0px 40px;
+    padding: 0px 40px;
+    background-color: cadetblue;
+}
+
+.SayfaBody .ic{
+    margin-top: 179px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px, 300px));
+        
+    gap: 23px;
+    background-color: crimson;
+    width: auto;
+    height: 100%;
+    padding-top: 15px;
+}

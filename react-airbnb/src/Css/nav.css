@@ -1,6 +1,11 @@
 .nav{
     display: flex;
     flex-direction: column;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin:0;
 }
 
 .main{
@@ -16,7 +21,7 @@
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    background-color:rgb(212, 155, 155);
+    background-color: #ffffff;
     height: 98px;
     width: auto;
     padding: 0px 40px;
@@ -29,7 +34,7 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    background-color:rgb(212, 155, 195);
+    
     height: 98px;
     width: 100%;
    
@@ -41,36 +46,66 @@
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    background-color:rgb(155, 201, 212);
+    
     height: 98px;
     width: 100%;
     transition: all 2s;
     scroll-behavior: smooth;
     
-    gap: 8px;
-    overflow:auto;
+    gap: 32px;
+    overflow:hidden;
 }
 
+.rolingbar .buttondis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background: linear-gradient(to left, #ffffff, #ffffff 45%, #ffffff77 85%,#c5181800 100%);
+    width: 50px;
+    height: 95px;
+    margin-bottom: 0px;
+}
 
+.rolingbar .buttondis.left{
+    background: linear-gradient(to right, #ffffff, #ffffff 45%, #ffffff77 85%,#c5181800 100%);
+    align-items: flex-start;
+}
 
-.rolingbarici .sol{
-    
+.rolingbar .buttonic{
+    background-color: white;
+    color: black;
+    font-size: 23px;
+    border-color: rgba(167, 165, 165, 0.479);;
+    border-style: solid;
+    border-radius: 50px;
+    border-width: 1px;
+    width: 32px;
+    height: 32px;
+    padding-top: 2px;
+    transition: all 0.15s;
+    transform: scale(1);
  
 }
 
-.rolingbarici .sag{
-    
+.rolingbar .buttonic:hover{
+    box-shadow: 1px 1px 12px 1px #53535323;
+    transform: scale(1.03);
 }
+
+
 
 .rolingbar .filitre{
     display: flex;
     justify-content: right;
     align-items: center;
     flex: none;
-    background-color: cyan;
-    width: 128px;
+    width: 118px;
     height: 98px;
+    padding-right: 10px;
+    
 }
+
 
 .rolingbar .filitre .out{
     display: flex;
@@ -86,7 +121,12 @@
     
     padding-top: 10px;
     padding-bottom: 10px;
-    
+    transition: all 0.15s;
+
+}
+
+.rolingbar .filitre .out:hover{
+    box-shadow: 0px 2px 4px rgba(63, 63, 63, 0.26);
     
 }
 
@@ -101,9 +141,6 @@
    border: none;
    
 }
-
-
-
 
 
 .rolingbar .alt{
@@ -130,7 +167,7 @@
 
 
 .rolingbar .out{
-    background-color: mediumseagreen;
+    
     width: auto;
     height: 78px;
     
@@ -140,7 +177,7 @@
 
 .out .minimenu{
     cursor: pointer;
-    background-color: blueviolet;
+    
     width: 70px;
     height: 52px;
     margin: 12px 0px 10px;
@@ -164,13 +201,13 @@
     flex-direction: column  ;
     align-items: center;
     gap: 3px;
-    background-color: rgb(43, 226, 180);
+    
     width: 70px;
     height: 44px;
 }
 
 .minimenu .ic .resim{
-    background-color: chocolate;
+    
     width: 24px;
     height: 24px;
 }
@@ -178,7 +215,7 @@
 .minimenu .ic .metin{
     font-size: 13px;
     color: rgb(82, 82, 82);
-    background-color: rgb(0, 255, 98);
+    
     width: auto;
     height: 16px;
     overflow: hidden; white-space: nowrap; text-overflow: ellipsis;

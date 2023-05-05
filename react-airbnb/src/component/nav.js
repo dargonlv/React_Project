@@ -3,17 +3,21 @@ import "../Css/nav.css"
 import userEvent from '@testing-library/user-event'
 import RolBar from './RolBar'
 
-let yedek =0;
+
 let roligbar="";
 function Nav() {
+    const liste =[]
+    const [yedek,Setyedek]= useState(0);
     const [scrolsol,Setscrolsol]= useState(0);
     const use= useRef(null)
     
 
-    const de=()=>{
-        console.log(use.current);
-        use.current.classList.add("altfocus")
-        
+    const rolibarFonk=()=>{
+        for (let index = 0; index < 25; index++) {
+            liste.push(<RolBar></RolBar>)
+            
+        }
+        return liste
     }
 
     const a =(()=>{
@@ -22,14 +26,15 @@ function Nav() {
             roligbar=document.querySelector(".rolingbarici")
             console.log("sss")
         }, 200);
-        roligbar.scrollLeft+=312;//78 'er atrış
+        roligbar.scrollLeft+=336;//78 'er atrış
         
-        yedek=yedek-312
-        if (yedek<0) {
-            yedek=0
-        }
         
-        Setscrolsol(roligbar.scrollLeft)
+        
+        setTimeout(()=>{
+            Setscrolsol(roligbar.scrollLeft)
+            
+        },400)
+      
         
     })
     const b =(()=>{
@@ -38,12 +43,13 @@ function Nav() {
             roligbar=document.querySelector(".rolingbarici")
             // console.log("sss")
         }, 200);
-        roligbar.scrollLeft-=312;//78 'er atrış
-        yedek=yedek+312
-        if(yedek>roligbar.scrollWidth-roligbar.offsetWidth){
-            yedek=roligbar.scrollWidth-roligbar.offsetWidth;
-        }
-        Setscrolsol(roligbar.scrollLeft)
+        roligbar.scrollLeft-=336;//78 'er atrış
+        
+        
+        setTimeout(()=>{
+            Setscrolsol(roligbar.scrollLeft)
+
+        },400)
         
     })
     
@@ -52,23 +58,29 @@ function Nav() {
             
             roligbar=document.querySelector(".rolingbarici")
             // console.log("bar width :",roligbar.scrollWidth-roligbar.offsetWidth)
-            yedek=roligbar.scrollWidth-roligbar.offsetWidth;
+            Setyedek(roligbar.scrollWidth-roligbar.offsetWidth)
+            // console.log("Toplam width :",yedek)
         }, 200);
         
-    },[])
+    },[roligbar.offsetWidth])
     
+    //bar kontrol
     useEffect(()=>{
         
             
-            console.log("bar konum",yedek)
+        console.log("bar konum",roligbar.scrollLeft)
+        console.log("scrol S0l ::",scrolsol)
+        console.log("yedek ::",yedek)
         
-        
-    },[yedek])
+    },[roligbar.scrollLeft])
+
+    
    
     
     
   return (
     <nav className='nav' >
+        {/* Nav üst ksıısm */}
         <div className='main'>
             <div className='orta'>
                 <div className='Logo'>
@@ -135,37 +147,29 @@ function Nav() {
 
             </div>
         </div>
+        {/* Bar kısmı */}
         <div className='rolingbar'>
             <div className='rolingbarici'>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
-                <RolBar></RolBar>
+                {rolibarFonk()}
             </div>
-            <div style={{position:"absolute",left:28,width:0}}>
-                        <button className='' onClick={b}>{"<"}</button>
+            <div style={{position:"absolute",left:32,width:0}}>
+                    {
+                        yedek >= `${scrolsol-1}` && `${scrolsol}` !=0 ?(//burdaki -1 bar tolerans payıdır
+                        <div className='buttondis left'>
+                            <button className='buttonic' onClick={b}>{"<"}</button> 
+                        </div>
+                        ):""
+                    }
+                    
                     </div>
-                <div style={{position:"relative",right:12,width:0}}>
-                        <button onClick={a}>{">"}</button>
+                <div style={{position:"relative",right:50,width:0}}>
+                    {
+                      yedek >= `${scrolsol+1}`  ?  (//bu +1 scrol hata payıdır
+                      <div className='buttondis'>
+                          <button className='buttonic' onClick={a}>{">"}</button>
+                      </div>
+                      ) :""
+                    }
                 </div>
             <div className='filitre'>
                 <div className='out'>
@@ -182,7 +186,7 @@ function Nav() {
                 </div>
             </div>
         </div>
-
+        
     </nav>
   )
 }

@@ -39,7 +39,7 @@ function Card() {
   const cardOut = ()=>{
     kontrol=false
     usebutons.current.style.opacity="0"
-    console.log("sdad")
+    
   }
 
   const begeni = (e)=>{
@@ -48,18 +48,18 @@ function Card() {
   }
 
   useEffect(()=>{
-    console.log("scrollWidth",usefoto.current.scrollWidth)//toplam foto boyutu
-    console.log("scrollLeft",usefoto.current.scrollLeft)
-    console.log("offsetWidth: ",usefoto.current.offsetWidth)//bir foto foto uzunluğu
+    // console.log("scrollWidth",usefoto.current.scrollWidth)//toplam foto boyutu
+    // console.log("scrollLeft",usefoto.current.scrollLeft)
+    // console.log("offsetWidth: ",usefoto.current.offsetWidth)//bir foto foto uzunluğu
     usesol.current.style.visibility="hidden"
   },[])
 
   useEffect(()=>{
-    console.log("yedek",yedek)
+    // console.log("yedek",yedek)
 
     if (yedek==0) {
       usesol.current.style.visibility="hidden"
-      console.log("usesol",usesol)
+      // console.log("usesol",usesol)
     }else if(yedek>=usefoto.current.scrollWidth-usefoto.current.offsetWidth){
       usesag.current.style.visibility="hidden"
     }else if(kontrol) {
@@ -71,7 +71,7 @@ function Card() {
   
 
   return (
-    <div className='cardbody' onMouseOver={cardOver} onClick={(e)=>{console.log("basildi")}} onMouseOut={cardOut}>
+    <div className='cardbody' onMouseOver={cardOver} onClick={(e)=>{console.log("card :","basildi")}} onMouseOut={cardOut}>
         <div className='rolfotolar' ref={usefoto}>
             <img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>
             <img className='foto' src='https://a0.muscache.com/im/pictures/ac7256f8-a4b4-4456-9704-51b9ecf2e083.jpg?im_w=720' ></img>

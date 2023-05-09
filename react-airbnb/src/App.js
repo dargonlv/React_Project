@@ -5,10 +5,9 @@ import { useEffect } from 'react';
 import Sayfa from './component/Sayfa';
 
 
+
 function App() {
-  useEffect(()=>{
-    console.log("sdasas")
-  })
+  
   
   return (
     <div className="App">

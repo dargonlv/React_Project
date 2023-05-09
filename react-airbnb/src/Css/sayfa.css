@@ -8,7 +8,7 @@
 }
 
 .SayfaBody .ic{
-    margin-top: 179px;
+    margin-top: 169px;
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(160px, 300px));
         

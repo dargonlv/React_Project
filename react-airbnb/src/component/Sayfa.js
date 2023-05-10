@@ -1,22 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "../Css/sayfa.css"
 import Card from './card'
-import Modal_kullanici from './Modal_kullanici'
+
 
 function Sayfa() {
+  const liste=[]
+
+  const rolibarFonk=()=>{
+    for (let index = 0; index < 25; index++) {
+        liste.push(<Card></Card>)
+        
+    }
+    return liste
+  }
+
   return (
     <div className='SayfaBody'>
-      
-        <div className='ic'>
-          <Modal_kullanici></Modal_kullanici>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-
+        <div  className='ic'>
+          {rolibarFonk()}        
         </div>
       
     </div>

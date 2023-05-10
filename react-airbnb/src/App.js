@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './component/footer';
 import Nav from './component/nav';
-import { useEffect } from 'react';
 import Sayfa from './component/Sayfa';
 
 
@@ -13,6 +12,7 @@ function App() {
     <div className="App">
       <Nav></Nav>     
       <Sayfa></Sayfa>
+      <Footer></Footer>
     </div>
   );
 }

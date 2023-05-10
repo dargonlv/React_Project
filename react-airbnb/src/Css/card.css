@@ -100,7 +100,7 @@
 
 .begeni{
     cursor: pointer;
-    color: rgba(0, 0, 0, 0.507);
+    color: rgba(0, 0, 0, 0.301);
     background: none;
     border:none;
     transition: transform 0.15s ease-in-out;
@@ -109,5 +109,6 @@
 
 .begeni:active{
     transform: scale(0.92);
+    color: rgba(0, 0, 0, 0.397);
 }
 

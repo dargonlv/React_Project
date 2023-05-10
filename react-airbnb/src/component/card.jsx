@@ -79,8 +79,8 @@ function Card() {
             <img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>
         </div>
         <div style={{position:'absolute ',width:0,}}>
-            <button className='begeni' onClick={begeni} style={{position:"relative",left:115,top:-170}} >
-              <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <button className='begeni' onClick={begeni} style={{position:"relative",left:110,top:-170}} >
+              <svg  xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
               </svg>
             </button>

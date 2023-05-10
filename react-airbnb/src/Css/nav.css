@@ -184,7 +184,7 @@
     margin: 12px 0px 10px;
     padding: 4px 0px;
     transition: all 0.25s;
-    opacity: 0.90;
+    opacity: 0.70;
 }
 .out .minimenu:hover .altfocus2{
     background-color: rgba(94, 94, 94, 0.575);
@@ -242,10 +242,7 @@
     align-items: center;
 }
 
-.Logo .ic{
-    
-    
-}
+
 
 .Search{
     display: flex;
@@ -446,3 +443,60 @@
 .Account .word:hover{
     background-color: rgba(201, 197, 197, 0.253)
 }
+
+.modal-ic{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 15px;
+}
+
+.modal-ic .modal-ust{
+    display: flex;
+    
+    width: 100%;
+    height: 50px;
+    border-bottom: rgba(63, 63, 63, 0.212) solid 1px;
+}
+
+.modal-ust .dil{
+    height: 50px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modal-ust .dil .ic{
+    cursor: pointer;
+    padding: 10px;
+}
+.modal-ust .dil .ic:hover{
+    background-color: rgba(99, 96, 96, 0.103);
+    border-radius: 10px;
+}
+
+
+.modal-ust .birim{
+    
+    height: 50px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.modal-ust .birim .ic{
+    cursor: pointer;
+    padding: 10px;
+}
+.modal-ust .birim .ic:hover{
+    background-color: rgba(99, 96, 96, 0.103);
+    border-radius: 10px;
+
+}
+

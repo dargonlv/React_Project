@@ -13,6 +13,7 @@ Yinede işe yarar web projeleri mevcuttur
 ![](https://github.com/dargonlv/React_Project/blob/main/react-chakra/film1.png?raw=true)
 
 Göster diyince filmi Google da aratıyor
+
 [https://www.omdbapi.com/](https://www.omdbapi.com/) Apiler bu adresten çekilmiştir
 Açıklama diyince aşağıdaki modal açılıyor
 
@@ -40,3 +41,15 @@ Bu işlem şu işe yarayacaktır bir divimiz var ama içi dolu ve biz ayrı bir 
 
 Kırmızı ile işaretlenen dikdörtgene kısma eklendi ama yer kaplamıyor şeklin bütünlüğünü bozmuyor
 
+---------------
+
+![](https://github.com/dargonlv/React_Project/blob/main/gorseller/stoppropagation.png?raw=true)
+
+Bizim butonumuzun positio’nu abslout olduğu için bu yöntem ile butona tıklanınca butonun altındaki işlemlerinde çalışması engellene biliniyor
+
+![](https://github.com/dargonlv/React_Project/blob/main/gorseller/stoppropagation-Image.png?raw=true)
+
+Kırmızı bir alan bir div tıklanınca yönlendirme yapıyor ama sağ üsteki kalp positon absloute olarak yerleştirilmiş bunun için  e.StopPropagation() işlemi ile kalp butonuna tıklanınca dive tıklandı olarak gözükmeyecek 
+Eğer position absloute olmasaydı bu işlemi  e.preventDefault();  ile yapılacaktı
+
+---------------

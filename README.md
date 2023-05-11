@@ -31,7 +31,7 @@ Açıklama diyince aşağıdaki modal açılıyor
 ![](https://github.com/dargonlv/React_Project/blob/main/react-airbnb/airbnb1.png?raw=true)
 
 --------------
-##Deneyimler Ve önemli Bilgilendirmeler
+## Deneyimler Ve önemli Bilgilendirmeler
 
 ![](https://github.com/dargonlv/React_Project/blob/main/gorseller/Position.png?raw=true)
 

@@ -27,13 +27,11 @@ function RolBar ({deger}){
 
     function hoverEnter(){
         if (!use.current.classList.contains("altfocus")) {
-            console.log("oldu")
             use.current.style.backgroundColor="rgba(94, 94, 94, 0.575)"
         }
     }
     
     function hoverLeave(){
-    
         use.current.style.backgroundColor=""
     }
 

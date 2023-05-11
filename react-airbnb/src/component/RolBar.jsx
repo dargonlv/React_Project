@@ -16,7 +16,7 @@ function RolBar ({deger}){
             temel.current.classList.remove("altfocus")
             hoverLeave()
         } catch (error) {
-            console.log(error)
+            console.log("error")
         }
         usemin.current.style.opacity=1
         use.current.classList.add("altfocus")
@@ -27,6 +27,7 @@ function RolBar ({deger}){
 
     function hoverEnter(){
         if (!use.current.classList.contains("altfocus")) {
+            console.log("oldu")
             use.current.style.backgroundColor="rgba(94, 94, 94, 0.575)"
         }
     }

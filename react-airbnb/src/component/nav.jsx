@@ -1,10 +1,11 @@
-import React,{useEffect, useRef,useState,useMemo, useCallback} from 'react'
+import React,{useEffect, useRef,useState} from 'react'
 import "../Css/nav.css"
 import RolBar from './RolBar'
 import ClickAwayListener from "react-click-away-listener";
 import Modal from './Modal';
 import Dilbolgesi from './dilbolgesi';
 import Parabirimi from './parabirimi';
+
 
 
 let roligbar="";
@@ -15,22 +16,21 @@ function Nav() {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] =  useState(false);
     const [dilpara, Setdilpara] =  useState(false);
-    
-
     const usemodal= useRef(null)
     
 
     const rolibarFonk=()=>{
         for (let index = 0; index < 25; index++) {
             if (index==0) {
-                liste.push(<RolBar deger={1}></RolBar>)
+                liste.push(<RolBar deger={index}></RolBar>)
             }else{
-                liste.push(<RolBar></RolBar>)
+                liste.push(<RolBar deger={index}></RolBar>)
             }
             
         }
         return liste
     }
+
 
     const a =(()=>{
         setTimeout(() => {

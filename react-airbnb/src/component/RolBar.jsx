@@ -3,29 +3,50 @@ import "../Css/nav.css"
 import Depo from "../Source"
 
 
-function RolBar (){
+function RolBar ({deger}){
     const {temel,Settemel}=Depo();
+    const {Mtemel,SetMtemel}=Depo();
     const use= useRef(null)
+    const usemin = useRef(null)
 
+    
     const de=()=>{
-        console.log(use.current);
         try {
+            Mtemel.current.style.opacity=0.70
             temel.current.classList.remove("altfocus")
+            hoverLeave()
         } catch (error) {
             console.log(error)
         }
+        usemin.current.style.opacity=1
         use.current.classList.add("altfocus")
         Settemel(use)
-        
-        
+        SetMtemel(usemin)
+   
+    }
+
+    function hoverEnter(){
+        if (!use.current.classList.contains("altfocus")) {
+            use.current.style.backgroundColor="rgba(94, 94, 94, 0.575)"
+        }
     }
     
+    function hoverLeave(){
+    
+        use.current.style.backgroundColor=""
+    }
 
+    useEffect(()=>{
+        if (deger==1) {
+            de();
+        }
+    },[use,usemin])
+    
     
     return(
         
             <div className='out'>
-                <div className='minimenu'  onClick={de}   > 
+                <div className='minimenu' ref={usemin} onClick={de} onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}   > 
                     <div className='ic'>
                         <div className='resim'>
                             <img style={{width:24,height:24}} src='https://a0.muscache.com/pictures/d7445031-62c4-46d0-91c3-4f29f9790f7a.jpg'></img>

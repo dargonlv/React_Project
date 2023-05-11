@@ -3,7 +3,9 @@ import { create } from 'zustand'
 
 const Depo = create((set)=>({
     temel:{},
-    Settemel:(s)=>set(()=>({temel: s}))
+    Settemel:(s)=>set(()=>({temel: s})),
+    Mtemel:{},
+    SetMtemel:(s)=>set(()=>({Mtemel: s}))
 }))
 
 export default Depo

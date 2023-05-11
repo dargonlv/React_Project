@@ -186,11 +186,7 @@
     transition: all 0.25s;
     opacity: 0.70;
 }
-.out .minimenu:hover .altfocus2{
-    background-color: rgba(94, 94, 94, 0.575);
-    
-    
-}
+
 
 .out .minimenu:hover{
     opacity: 1;

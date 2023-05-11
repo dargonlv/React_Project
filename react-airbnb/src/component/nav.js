@@ -15,13 +15,18 @@ function Nav() {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] =  useState(false);
     const [dilpara, Setdilpara] =  useState(false);
+    
 
     const usemodal= useRef(null)
     
 
     const rolibarFonk=()=>{
         for (let index = 0; index < 25; index++) {
-            liste.push(<RolBar></RolBar>)
+            if (index==0) {
+                liste.push(<RolBar deger={1}></RolBar>)
+            }else{
+                liste.push(<RolBar></RolBar>)
+            }
             
         }
         return liste

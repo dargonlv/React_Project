@@ -17,6 +17,8 @@ Göster diyince filmi Google da aratıyor
 [https://www.omdbapi.com/](https://www.omdbapi.com/) Apiler bu adresten çekilmiştir
 Açıklama diyince aşağıdaki modal açılıyor
 
+Çeviri sistemi eklenmiştir ingilizce açıklamaları türkçeye çevirir
+
 ![](https://github.com/dargonlv/React_Project/blob/main/react-chakra/film2.png?raw=true)
 
 -------------

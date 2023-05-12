@@ -421,6 +421,8 @@
     background-color: rgba(78, 78, 78, 0.288)
 }
 
+
+
 .Account .word{
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0);
@@ -455,6 +457,69 @@
     width: 100%;
     height: 50px;
     border-bottom: rgba(63, 63, 63, 0.212) solid 1px;
+}
+
+.modal-ic .ceviri{
+    width: 100%;
+    padding-top: 22px;
+}
+
+.modal-ic .ceviri .ic{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(27, 27, 27, 0.055);
+    width: 574px;
+    padding: 8px;
+    
+    height: 50px;
+}
+
+.modal-ic .ceviri .ic2{
+    
+    width: 554px;
+    height: 50px;
+    
+    
+}
+
+.modal-ic .ceviri .ic .cvrButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 50px;
+    
+}
+
+.ceviri .ic .cvrButton .dis{
+    background-color: rgba(12, 12, 12, 0.932);
+    width: 50px;
+    height: 30px;
+    border-radius: 45px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 2px;
+    
+    
+}
+
+
+.ceviri .ic .cvrButton .ic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 12px;
+    height: 12px;
+    border-radius: 30px;
+    
+    transition: all 0.25s;
+    transform: translateX(+0%);
+}
+
+.ceviri .ic .cvrButton .ic:hover{
+    
 }
 
 .modal-ust .dil{

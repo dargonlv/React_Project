@@ -2,12 +2,20 @@ import React, { useEffect, useRef, useState } from 'react'
 import "../Css/card.css"
 
 let kontrol =false
+let _imglist=[]
 function Card() {
   const usefoto = useRef()
   const usesol = useRef()
   const usesag = useRef()
   const usebutons = useRef()
   const [yedek,Setyedek]= useState(0)
+  const [analist,Setanalist] = useState(0);
+  const imglist = {
+    0:<img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>,
+    1:<img className='foto' src='https://a0.muscache.com/im/pictures/ac7256f8-a4b4-4456-9704-51b9ecf2e083.jpg?im_w=720' ></img>,
+    2:<img className='foto' src='https://a0.muscache.com/im/pictures/8da388d1-627d-4412-ab2c-5e2d40c9fcaa.jpg?im_w=720' ></img>,
+    3:<img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>,
+  }
   
   const sol = (e)=>{
     usefoto.current.scrollLeft -=300;
@@ -47,10 +55,26 @@ function Card() {
     console.log("like")
   }
 
+  function imgSpwan(){ 
+    _imglist=[];
+    for (let index = 0; index < 4; index++) {
+      _imglist.push(imglist[random(0,4)])
+      
+    }
+    Setanalist(_imglist)
+    
+  }
+
+  function random(min, max) {
+    // 👇️ get number between min (inclusive) and max (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
   useEffect(()=>{
     // console.log("scrollWidth",usefoto.current.scrollWidth)//toplam foto boyutu
     // console.log("scrollLeft",usefoto.current.scrollLeft)
     // console.log("offsetWidth: ",usefoto.current.offsetWidth)//bir foto foto uzunluğu
+    imgSpwan()
     usesol.current.style.visibility="hidden"
   },[])
 
@@ -73,10 +97,7 @@ function Card() {
   return (
     <div className='cardbody' onMouseOver={cardOver} onClick={(e)=>{console.log("card :","basildi")}} onMouseOut={cardOut}>
         <div className='rolfotolar' ref={usefoto}>
-            <img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>
-            <img className='foto' src='https://a0.muscache.com/im/pictures/ac7256f8-a4b4-4456-9704-51b9ecf2e083.jpg?im_w=720' ></img>
-            <img className='foto' src='https://a0.muscache.com/im/pictures/8da388d1-627d-4412-ab2c-5e2d40c9fcaa.jpg?im_w=720' ></img>
-            <img className='foto' src='https://a0.muscache.com/im/pictures/dd9cf0f0-57e0-42a5-aef6-b15e95ab0d40.jpg?im_w=720' ></img>
+            {analist}
         </div>
         <div style={{position:'absolute ',width:0,}}>
             <button className='begeni' onClick={begeni} style={{position:"relative",left:110,top:-170}} >

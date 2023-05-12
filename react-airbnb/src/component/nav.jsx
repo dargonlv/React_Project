@@ -5,7 +5,7 @@ import ClickAwayListener from "react-click-away-listener";
 import Modal from './Modal';
 import Dilbolgesi from './dilbolgesi';
 import Parabirimi from './parabirimi';
-
+import Depo from '../Source';
 
 
 let roligbar="";
@@ -16,15 +16,17 @@ function Nav() {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] =  useState(false);
     const [dilpara, Setdilpara] =  useState(false);
+    const {cevir,Setcevir} = Depo()
     const usemodal= useRef(null)
+    const usecevir= useRef(null)
     
 
     const rolibarFonk=()=>{
         for (let index = 0; index < 25; index++) {
             if (index==0) {
-                liste.push(<RolBar deger={index}></RolBar>)
+                liste.push(<RolBar deger={index} data_index={index}></RolBar>)
             }else{
-                liste.push(<RolBar deger={index}></RolBar>)
+                liste.push(<RolBar deger={index} data_index={index}></RolBar>)
             }
             
         }
@@ -64,6 +66,18 @@ function Nav() {
         },400)
         
     })
+
+    const cevirfonk = ()=>{
+        if (cevir&&usecevir) {
+            usecevir.current.style.transform=" translateX(+80%)"
+            Setcevir(false)
+        }else if(usecevir){
+            usecevir.current.style.transform=" translateX(+0%)"
+            Setcevir(true)
+        }
+        console.log(usecevir)        
+        console.log(cevir)        
+    }
     
     useEffect(()=>{
         setTimeout(() => {
@@ -102,8 +116,19 @@ function Nav() {
 
     
     //#endregion
+    useEffect(()=>{
+        setTimeout(() => {
+            
+            if (cevir && usecevir.current) {
+                usecevir.current.style.transform=" translateX(+00%)"
+            }else if(usecevir.current){
+                usecevir.current.style.transform=" translateX(+80%)"
+            }
+        }, 200);
+    },[isModalOpen])
 
     const handleOpenModal = () => {
+        
         setIsModalOpen(true);
       };
     
@@ -185,6 +210,21 @@ function Nav() {
                                         </div>
                                     </div>
                                     <div style={{width:"100%",paddingLeft:15,paddingRight:15}}>
+                                        <div className='ceviri'>
+                                            <div className='ic'>
+                                                <div className='ic2'>
+                                                    Çeviri<br></br>
+                                                    Açıklama ve değerlendirmelerin otomatik olarak çevrileceği dil: Türkçe.
+                                                </div>
+                                                <div className='cvrButton'>
+                                                    <div className='dis'>
+                                                        <div className='ic'  ref={usecevir} onClick={cevirfonk}>
+                                                            <i class="gg-check" style={{position:'relative',left:-5}}></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         {dilpara ? <Parabirimi></Parabirimi> :<Dilbolgesi></Dilbolgesi>}
                                     </div>
                                 </div>

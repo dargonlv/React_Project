@@ -3,9 +3,10 @@ import "../Css/nav.css"
 import Depo from "../Source"
 
 
-function RolBar ({deger}){
+function RolBar ({deger,data_index}){
     const {temel,Settemel}=Depo();
-    const {Mtemel,SetMtemel}=Depo();
+    const {Mtemel,SetMtemel,
+            rolselectCount,SetrolselectCount}=Depo();
     const use= useRef(null)
     const usemin = useRef(null)
 
@@ -18,6 +19,7 @@ function RolBar ({deger}){
         } catch (error) {
             console.log("error")
         }
+        SetrolselectCount(usemin.current.dataset.index)
         usemin.current.style.opacity=1
         use.current.classList.add("altfocus")
         Settemel(use)
@@ -36,7 +38,7 @@ function RolBar ({deger}){
     }
 
     useEffect(()=>{
-        if (deger==1) {
+        if (deger==0) {
             de();
         }
     },[use,usemin])
@@ -45,7 +47,7 @@ function RolBar ({deger}){
     return(
         
             <div className='out'>
-                <div className='minimenu' ref={usemin} onClick={de} onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}   > 
+                <div className='minimenu' ref={usemin} data-index={data_index} onClick={de} onMouseEnter={hoverEnter} onMouseLeave={hoverLeave}   > 
                     <div className='ic'>
                         <div className='resim'>
                             <img style={{width:24,height:24}} src='https://a0.muscache.com/pictures/d7445031-62c4-46d0-91c3-4f29f9790f7a.jpg'></img>

@@ -44,14 +44,15 @@ function KullaniciArayuz() {
     }
 
     useEffect(()=>{
-      if (time==expires_in-1) {
+      if (time==expires_in-1 && dead_time!=refresh_expires_in-2) {
         Rfresh_Token()
         Settime(0)
         
         console.log("sıfırladnid expires_in ile")
         console.log(expires_in)
+        console.log(dead_time,"olmasi : ",refresh_expires_in)
       }
-      if (dead_time==refresh_expires_in) {
+      if (dead_time==refresh_expires_in-2) {
         console.log("Çıkış")
         alert("otutum süresi doldu")
         logout()

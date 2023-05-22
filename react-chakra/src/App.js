@@ -1,20 +1,19 @@
 import './App.css';
 
-import MenuBar from './companent/Menu';
+
 import {useEffect} from "react"
 import Film from './companent/Film';
 import Hakkinda from './companent/page/hakkında/hakkinda';
 import Konum from './companent/page/hakkında/konum';
 import Istatistik from './companent/page/hakkında/istatistik';
-import Hakkinda_layout from './companent/page/hakkında/hakkinda-layout';
+import HakkindaLayout from './companent/page/hakkında/hakkinda-layout';
 
 import {Icon, SearchIcon} from "@chakra-ui/icons"
-import {Button, Center, Flex, Input, flexbox} from "@chakra-ui/react"
+import {Button, Center, Input} from "@chakra-ui/react"
 import Depo from './Sorce';
-import { Routes,Route,Link,NavLink, useParams, useNavigate} from "react-router-dom"
+import { Routes,Route,NavLink, useNavigate, Navigate} from "react-router-dom"
 import UrlPage from './companent/page/hakkında/UrlPage';
 import ImageGallery from './companent/ImageGallery';
-
 
 
 
@@ -30,7 +29,7 @@ function App() {
   const Setpage= Depo((state)=> state.Setpage)
 
   const sayi = Depo((state)=> state.sayi)
-  const setsayi = Depo((state)=> state.setsayi)
+
   
   const kelime = Depo((state)=> state.kelime)
   const Setkelime = Depo((state)=> state.Setkelime)
@@ -38,7 +37,7 @@ function App() {
   const filmler = Depo((a)=>a.filmler );
   const Setfilmler = Depo((a)=>a.Setfilmler);
 
-  const filmlerYedek = Depo((a)=>a.filmlerYedek );
+
   const SetfilmlerYedek = Depo((a)=>a.SetfilmlerYedek);
 
  
@@ -50,6 +49,7 @@ function App() {
     // fetch(`https://imdb-api.projects.thetuhin.com/title/tt0316654`).then(s=> s.json()).then(a=>{console.log(a)})
     navigate(`/${page}`)
     
+  /*eslint-disable-next-line */
   },[kelime,sayi,page])
 
   
@@ -152,11 +152,12 @@ return (
                             
           <div className='sag'>
             <Routes>
+              <Route path='*' element={<Navigate to="/"></Navigate>}></Route>
               <Route path='/' element={<Film></Film>}>
                 <Route path=':page' element={<App></App>} ></Route>
               </Route>                
               <Route path='/hakkinda' element={<Hakkinda></Hakkinda>}>
-                <Route index={true} element={<Hakkinda_layout></Hakkinda_layout>}></Route>{/*hakkinda sayfas ile ilgili bilgiler burda olucak 
+                <Route index={true} element={<HakkindaLayout></HakkindaLayout>}></Route>{/*hakkinda sayfas ile ilgili bilgiler burda olucak 
                 bunun altındaki sayfalara geçince hakkinda kısmı gözümkesin diye hakkında layout diye bir sayfa oluşturduk*/}
                 <Route path='konum' element={<Konum></Konum>}></Route>
                 <Route path='istatistik' element={<Istatistik></Istatistik>}></Route>

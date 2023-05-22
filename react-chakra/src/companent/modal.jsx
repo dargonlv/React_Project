@@ -40,6 +40,7 @@ function ModalMulti({film}) {
   const aciklamaClick = async (e,id)=>{
     setaciklama([]);
     SetaciklamatrClear();
+    console.log(e);
     await fetch(`http://www.omdbapi.com/?i=${e}&apikey=b920a3bf&page=1&plot=full`).then(s=> s.json()).then(a=>{setaciklama(a)})
     await fetch(`https://imdb-api.projects.thetuhin.com/title/${e}`).then(s=> s.json()).then(a=> {SetfilmImages(a.images);Setfilmtur(a.genre)})
     

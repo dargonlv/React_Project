@@ -1,6 +1,7 @@
 {
   "name": "react-chakra",
   "version": "0.1.0",
+  "homepage": "https://filmarsiv12.000webhostapp.com",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.18",

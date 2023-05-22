@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Hakkinda_layout() {
+function HakkindaLayout() {
   return (
     <div>
       <ul>
@@ -17,4 +17,4 @@ function Hakkinda_layout() {
   )
 }
 
-export default Hakkinda_layout
+export default HakkindaLayout

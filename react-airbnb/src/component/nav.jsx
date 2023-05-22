@@ -188,7 +188,9 @@ function Nav() {
                 <div className='Account'>
                     <div className='ara'>
                         <a className='link' href='https://www.airbnb.com.tr/host/homes' style={{color:'black',textDecoration:"none"}}>
+                            <div style={{padding:"0px 10px 0px 10px"}}>
                             Evinizi Airbnb'ye taşıyın
+                                </div>
                         </a>
                         <button className='word' onClick={handleOpenModal}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">

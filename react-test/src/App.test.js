@@ -1,8 +1,9 @@
 import { render, screen,fireEvent } from '@testing-library/react';
 import App from './App';
 import Card from './component/card';
+import { findDOMNode } from 'react-dom';
 
-test('ilk test',()=>{
+test('butonlar yüklendimi',()=>{
     const {getAllByRole} = render(<App></App>);
 
     const ss= getAllByRole("button").map((a)=>{
@@ -16,7 +17,7 @@ test('ilk test',()=>{
     
 })
 
-test("input", ()=>{
+test("input doğru çalısıyormu", ()=>{
   const {getByPlaceholderText} = render(<App></App>);
   
   const input = getByPlaceholderText("isminiz")
@@ -26,10 +27,10 @@ test("input", ()=>{
   expect(input.value).toBe("Fatih")
 })
 
-test("click",()=>{
-  const {getByText}=render(<App></App>);
+test("click operasyonu testi",()=>{
+  const {getByText,container}=render(<App></App>);
 
-  let divcolor=document.querySelector(".renkdiv").style.backgroundColor;
+  let divcolor=container.querySelector(".renkdiv").style.backgroundColor;
   
   //click durumunda divcolorun rengi değişiyor bunu doğrulayan bir test
   expect(divcolor).toBe("black")
@@ -46,6 +47,9 @@ test("click",()=>{
 test("cardlar yüklendimi",()=>{
   const { container } = render(<App />);
   
-  console.log(screen.findAllByRole().then((a)=>{console.log(a)}))
+  // expect(container.getElementsByClassName("cardlar")).toContainInstanceOf(<Card></Card>)
+  // expect(container.querySelector(".cardlar").childElementCount).toBe(4)//içerisinde 4 tane elemnt varmı diye kontrol eder
+  expect(container.querySelector(".cardlar")).not.toBeEmptyDOMElement()//içerisinde element varmı yokmu dşye kontrol eder
 
+  
 })

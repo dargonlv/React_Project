@@ -1,5 +1,5 @@
 import './App.css';
-
+import {motion} from "framer-motion"
 
 import {useEffect} from "react"
 import Film from './companent/Film';
@@ -122,7 +122,7 @@ return (
         
     <div className="App">
       <div className='hepsi'>
-        <div className='disSol' >
+        <motion.div animate={{opacity:1}} transition={{delay:1,duration:0.1}} initial={{opacity:0}} className='disSol' >
           <div className='solust'>
             <div className='solust2'>
 
@@ -135,7 +135,7 @@ return (
 
           </div>
           
-        </div>
+        </motion.div>
 
         <div className='disSag'>
 

@@ -1,0 +1,102 @@
+.main{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.imgdiv{
+    position: relative;
+    margin: 30px auto 20px;
+    max-width: 110px;
+    text-align: center;
+    z-index: 0;
+}
+
+.img{
+    height: 110px;
+    width: 110px;
+    background-color: blueviolet;
+    border-radius: 100%;
+    border: solid rgba(0, 0, 0, 0.199) 1px
+}
+
+.site-title-block {
+    position: relative;
+    z-index: 1;
+    margin: 0px 20px 10px;
+    text-align: center;
+}
+
+.site-title {
+    color: #222;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.1em;
+    margin: 0 0 0 0;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.nav{
+    height: auto;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.navs{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 15px;
+    
+}
+
+.navsic{
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+    height: 45px;
+    border-top: solid 1px rgba(0, 0, 0, 0.060);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.060);
+    
+    
+    
+}
+
+.navsic:hover{
+    background-color: rgb(245, 245, 245);
+    border-right: solid rgba(7, 7, 7, 0.068) 4px;
+    
+    
+}
+
+.navsic:active{
+    border-right: solid salmon 4px;
+
+}
+
+.solalt{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width:100%;
+}
+
+.solalt .ic{
+    margin-top: 20%;
+    
+}

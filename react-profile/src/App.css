@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: row;
   text-align: center;
+  overflow-y: auto;
 }
 
 .sol{
+  
+  flex: none;
     width: 22%;
     height: 100vh;
     overflow-y: auto;

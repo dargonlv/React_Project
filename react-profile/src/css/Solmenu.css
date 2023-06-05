@@ -1,6 +1,9 @@
 .main{
     display: flex;
+    
     flex-direction: column;
+    position: fixed;
+    width: 22%;
 
 }
 
@@ -21,6 +24,7 @@
 }
 
 .site-title-block {
+    
     position: relative;
     z-index: 1;
     margin: 0px 20px 10px;

@@ -1,6 +1,7 @@
 import React from 'react'
 import "../css/Hakkimda.css"
 import logo from "../clogo.png"
+import {Text} from "@chakra-ui/react"
 
 
 function Hakkimda() {
@@ -14,10 +15,16 @@ function Hakkimda() {
 
           Hakkimda
         </div>
-      
+
+        <div style={{position:'relative'}}>
+          <div className='ust' >
+            Yazılım, Eğlence, Müzik, IT, Developer 
+          </div>
+        </div>
+
       </div>
       <div className='ara'>
-
+        
       </div>
 
       <div className='hakkindabody'>
@@ -26,7 +33,7 @@ function Hakkimda() {
             <div className='baslik'> 
               Ben Bilişim Uzmanıyım
             </div>
-            <div className='metin'>
+            <div className='metin1'>
               Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral 
               Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral 
               Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral Ben Fatih Meral 
@@ -50,20 +57,47 @@ function Hakkimda() {
         <div className='diller'>
           <div className='dilleric'>
             <div className='logo' >
-              <img src={logo}></img>
+              <img src={logo} style={{width:78,height:78,objectFit:'cover'}}></img>
             </div>
-              <div className='baslik'>C#</div>
+              <div className='baslik2'>C#</div>
+            <div className='metin'>
+              
+
+              Bu alanda 4 yıllık bir tecrübem bulunmaktadır bir çok proje gelişiminde katkıda bulundum dsdsadsdads ds da sdsad as dasds d
+              
+            </div>
+          </div>
+          
+          <div className='dilleric'>
+            <div className='logo' >
+              <img src={logo} style={{width:78,height:78,objectFit:'cover'}}></img>
+            </div>
+              <div className='baslik2'>C#</div>
             <div className='metin'>
               Bu alanda 4 yıllık bir tecrübem bulunmaktadır bir çok proje gelişiminde katkıda bulundum
             </div>
-
           </div>
+          
           <div className='dilleric'>
+            <div className='logo' >
+              <img src={logo} style={{width:78,height:78,objectFit:'cover'}}></img>
+            </div>
+              <div className='baslik2'>C#</div>
+            <div className='metin'>
+              Bu alanda 4 yıllık bir tecrübem bulunmaktadır bir çok proje gelişiminde katkıda bulundum
+            </div>
           </div>
+          
           <div className='dilleric'>
+            <div className='logo' >
+              <img src={logo} style={{width:78,height:78,objectFit:'cover'}}></img>
+            </div>
+              <div className='baslik2'>C#</div>
+            <div className='metin'>
+              Bu alanda 4 yıllık bir tecrübem bulunmaktadır bir çok proje gelişiminde katkıda bulundum
+            </div>
           </div>
-          <div className='dilleric'>
-          </div>
+          
         </div>
 
       </div>

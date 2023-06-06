@@ -14,7 +14,7 @@
 }
 
 .hakkindabody{
-    background-color: burlywood;
+    
     width: auto;
     height: auto;
     padding: 50px;
@@ -24,27 +24,26 @@
 .icerik{
     width: 100%;
     height: 100%;
-    background-color: blueviolet;
 }
 
 .icerikic{
     width: 60%;
     height: auto;
     padding: 15px;
+    padding-left: 0px;
     text-align: left;
-    background-color: rgb(108, 230, 203);
 }
 
-.baslik{
+.baslik2{
     font-weight: bold;
 }
 
-.metin{
+.metin1{
     color: rgb(75, 74, 74);
 }
 
 .dilbaslik{
-    width: 48px;
+    width: max-content;
     border-bottom: solid 2px chocolate;
     font-weight: bold;
 }
@@ -54,8 +53,7 @@
     flex-direction: row;
     gap: 10px;
     width: 100%;
-    height: 200px;
-    background-color: darkgoldenrod;
+    height: auto;
     padding: 10px 10px 10px 10px;
     overflow-x: auto;
 }
@@ -64,27 +62,38 @@
     display: flex;
     flex: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 24%;
-    height: 100%;
-    background-color: coral;
+    height: auto;
     
     
 }
 
 .logo{
-    background-color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50%;
     object-fit: cover;
 }
 
 .metin{
-    background-color: cadetblue;
-    height: 50%;
+    color: rgb(75, 74, 74);
+    height: auto;
+    width: 150px;
+    
+    overflow-y: hidden;
+    overflow-x: hidden;
+    text-align: center;
+    font-size: 12px;
+    
 }
 
 .solimge{
+    display: flex;
+    flex-direction: row;
     color: white;
-    background-color: rgb(226, 121, 89);
     width: auto;
     height: 46px;
     position: absolute;
@@ -106,4 +115,18 @@
     rotate: 46deg;
     left: 0px;
     top:0px;
+}
+
+.ust{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    color: rgb(121, 119, 119);
+    white-space: nowrap;
+    font-size: 13px;
+    
 }

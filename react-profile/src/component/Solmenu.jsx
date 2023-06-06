@@ -16,6 +16,10 @@ function Solmenu() {
         navigate("/hakkimda")
     }
 
+    function KariyerClick(){
+      navigate("/kariyer");
+    }
+
   return (
     <div className='main'>
       <div className='imgdiv'>
@@ -32,7 +36,7 @@ function Solmenu() {
         <div className='navs'>
             <div onClick={AnasayfaClick} className='navsic'> Ana Sayfa</div>
             <div onClick={HakkimdaClick} className='navsic'> Hakkımda</div>
-            <div onClick={AnasayfaClick} className='navsic'> Kariyer</div>
+            <div onClick={KariyerClick} className='navsic'> Kariyer</div>
             <div onClick={AnasayfaClick} className='navsic'> Ana Sayfa</div>
             <div onClick={AnasayfaClick} className='navsic'> Ana Sayfa</div>
             <div onClick={AnasayfaClick} className='navsic'> Ana Sayfa</div>

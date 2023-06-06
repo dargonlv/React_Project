@@ -4,6 +4,7 @@ import Solmenu from './component/Solmenu';
 import {Route,Routes} from "react-router-dom"
 import Anasayfa from './component/Anasayfa';
 import Hakkimda from './component/Hakkimda';
+import Kariyer from './component/Kariyer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path='/' element={<Anasayfa></Anasayfa>}></Route>
             <Route path='/anasayfa' element={<Anasayfa></Anasayfa>}></Route>
             <Route path='/hakkimda' element={<Hakkimda></Hakkimda>}></Route>
+            <Route path="/kariyer" element={<Kariyer></Kariyer>}></Route>
           </Routes>
         </div>
       </div>

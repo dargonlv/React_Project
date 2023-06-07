@@ -1,12 +1,14 @@
 import React from 'react'
 import "../css/kariyer.css"
 import KariyerCard from './KariyerCard';
-import { color } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Yetenekbar from './Yetenekbar';
 
 
 function Kariyer() {
   return (
+    <motion.div   animate={{opacity:1,y:0}}  transition={{delay:0.25,duration:0.2,ease:'easeInOut'}}
+            initial={{opacity:0,y:-60}} >
     <div className='kariyermain '>
       <div className='solimge'>
         <div className='parca'> 
@@ -94,6 +96,7 @@ function Kariyer() {
       </div>
 
     </div>
+    </motion.div>
   )
 }
 

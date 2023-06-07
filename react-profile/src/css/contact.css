@@ -1,0 +1,108 @@
+.contactmain{
+    
+    color: rgb(48, 47, 47);
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgb(255, 255, 255);
+}
+
+.contactbody{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 50px;
+    padding-top: 10px;
+}
+
+.ara{
+    
+    width: 100%;
+    height: 130px;
+}
+
+.parca{
+    
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid  rgb(201, 111, 83);
+    position: absolute;
+    margin-top: 45px;
+    rotate: 46deg;
+    left: 0px;
+    top:0px;
+}
+
+.iletisimbilgi{
+    width: 50%;
+    height: auto;
+    
+}
+
+.iletisimform{
+    width: 50%;
+    height: auto;
+}
+
+.imetin{
+    text-align: left;
+    color: rgb(75, 74, 74);
+    margin-top: 20px;
+}
+
+.imgeler{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.imge{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    gap: 15px;
+    width: 100%;
+    height: auto;
+    
+    color: rgba(110, 110, 110, 0.664);
+
+}
+
+.metin2{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.inputlogo{
+    left:91% ;
+    bottom: 30px;
+    position: relative;
+    width:20px;
+    height: 20px;
+    
+    color: rgb(204, 203, 203);
+}
+
+.inputlar{
+    padding-top: 20px;
+    
+}
+
+.input{
+    
+}
+
+.button{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}

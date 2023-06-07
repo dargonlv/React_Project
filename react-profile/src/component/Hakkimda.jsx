@@ -2,10 +2,13 @@ import React from 'react'
 import "../css/Hakkimda.css"
 import logo from "../clogo.png"
 import {Text} from "@chakra-ui/react"
+import { motion } from 'framer-motion'
 
 
 function Hakkimda() {
   return (
+    <motion.div  animate={{opacity:1,x:0}}  transition={{delay:0.25,duration:0.2,ease:'easeInOut'}}
+            initial={{opacity:0,x:-20}} >
     <div className='hakkimdamain'>
       <div className='solimge'>
         <div className='parca'> 
@@ -103,6 +106,7 @@ function Hakkimda() {
       </div>
 
     </div>
+      </motion.div>
   )
 }
 
